@@ -809,6 +809,104 @@
       }
   }
 
+  /* ========== Reveal / Interaction helpers ========== */
+  .animate {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 700ms cubic-bezier(.2, .9, .2, 1),
+          transform 700ms cubic-bezier(.2, .9, .2, 1);
+      will-change: opacity, transform;
+  }
+
+  /* when JS / observer sets visible */
+  .animate.in-view {
+      opacity: 1;
+      transform: translateY(0);
+  }
+
+  /* staggered child transitions will use inline transition-delay set by JS */
+
+  /* image hover effect */
+  .grid-item img {
+      transition: transform 600ms cubic-bezier(.2, .9, .2, 1),
+          filter 600ms cubic-bezier(.2, .9, .2, 1);
+      will-change: transform, filter;
+      backface-visibility: hidden;
+  }
+
+  .grid-item:hover img,
+  .grid-item.js-anim-ready:focus-within img {
+      transform: scale(1.06);
+      filter: brightness(1.04) saturate(1.03);
+  }
+
+  /* header image slide + scale */
+  .header-image {
+      overflow: hidden;
+  }
+
+  .header-image img {
+      transform: translateX(-8%) scale(1.03);
+      transition: transform 900ms cubic-bezier(.2, .9, .2, 1);
+      will-change: transform;
+  }
+
+  .header-image.animate.in-view img {
+      transform: translateX(0) scale(1);
+  }
+
+  /* middle-right images: subtle scale-from-slightly-larger to normal */
+  .middle-right .grid-item img {
+      transform: scale(1.02);
+  }
+
+  .middle-right .grid-item.animate.in-view img {
+      transform: scale(1);
+  }
+
+  /* bottom-row: children will get reveal via JS-stagger */
+  .bottom-row>* {
+      will-change: opacity, transform;
+  }
+
+  /* Explore button micro-interaction */
+  .explore-btn {
+      transition: transform 220ms cubic-bezier(.2, .9, .2, 1), box-shadow 220ms;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+      transform-origin: center;
+  }
+
+  .explore-btn:active {
+      transform: translateY(1px) scale(.995);
+  }
+
+  .explore-btn:hover {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+  }
+
+  /* Marquee - pause on hover for better UX */
+  .marquee:hover .marquee-content,
+  .marquee:focus-within .marquee-content {
+      animation-play-state: paused;
+      opacity: 0.96;
+  }
+
+  /* Respect reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+
+      .animate,
+      .grid-item img,
+      .header-image img,
+      .marquee-content {
+          transition: none !important;
+          animation: none !important;
+          transform: none !important;
+          opacity: 1 !important;
+      }
+  }
+
+
+
   /* Gallery Section */
 
   .gallery-section {
