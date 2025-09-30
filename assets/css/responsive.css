@@ -1,0 +1,444 @@
+/* Fluid media and sections */
+img,
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+.banner img,
+.banner video {
+    max-width: none;
+}
+
+/* Respect sticky header on small screens by allowing content to flow */
+section,
+div,
+nav,
+header,
+footer {
+    min-width: 0;
+}
+
+/* Accessibility: focus outlines for keyboard users */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid #f5d142;
+    outline-offset: 2px;
+}
+
+/* -----------------------
+   Type scaling with clamp
+   ----------------------- */
+
+/* Banner headings */
+.banner-left .headline,
+.banner-right .headline {
+    font-size: clamp(1.75rem, 3.2vw + 0.5rem, 3rem);
+    line-height: 1.15;
+}
+
+/* Banner subhead */
+.banner-left .subhead {
+    font-size: clamp(0.9rem, 1.1vw + 0.5rem, 1.1rem);
+}
+
+/* Services section */
+.services-header h1 {
+    font-size: clamp(2rem, 3vw + 1rem, 3rem);
+}
+
+.services-header .services-desc {
+    font-size: clamp(0.95rem, 0.7vw + 0.6rem, 1.15rem);
+}
+
+/* Offer section */
+.offer-discount,
+.offer-title {
+    font-size: clamp(1.8rem, 2.6vw + 0.6rem, 3.2rem);
+}
+
+.offer-desc {
+    font-size: clamp(1rem, 0.9vw + 0.5rem, 1.25rem);
+}
+
+/* Project grid headings */
+.header-text h1 {
+    font-size: clamp(2rem, 2vw + 1rem, 3rem);
+}
+
+.header-text p,
+.middle-left h2,
+.bottom-center h2 {
+    font-size: clamp(0.9rem, 0.5vw + 0.6rem, 1rem);
+}
+
+/* Gallery section */
+.gallery-header h1 {
+    font-size: clamp(2rem, 2.6vw + 0.6rem, 4.5rem);
+}
+
+.gallery-header p {
+    font-size: clamp(0.9rem, 0.6vw + 0.6rem, 1rem);
+}
+
+/* Footer headings already have breakpoints; keep desktop same */
+
+/* -----------------------
+   Header and navigation
+   ----------------------- */
+
+/* No change on desktop defaults (Global.css rules stay authoritative) */
+
+/* Tablet and below */
+@media (max-width: 1024px) {
+    .site-header {
+        height: auto;
+        padding: 10px 0;
+    }
+
+    .header-container.header-inner {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+            "logo phone"
+            "nav  nav";
+        row-gap: 10px;
+        align-items: center;
+    }
+
+    .logo-container {
+        grid-area: logo;
+    }
+
+    .header-contact {
+        grid-area: phone;
+        justify-self: end;
+        font-size: 13px;
+        gap: 6px;
+    }
+
+    /* Keep menu visible and accessible, stacked under header on small screens */
+    .main-nav {
+        grid-area: nav;
+        display: flex !important;
+        flex-wrap: wrap;
+        gap: 16px;
+        padding-top: 6px;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .main-nav a {
+        font-size: 14px;
+        padding: 6px 0;
+    }
+
+    /* Hide decorative toggle (no JS needed to preserve design) */
+    .nav-toggle {
+        display: none !important;
+    }
+}
+
+/* Mobile narrow phones */
+@media (max-width: 480px) {
+    .logo-container img {
+        height: 38px;
+    }
+
+    .header-contact span {
+        font-size: 12px;
+    }
+
+    .main-nav {
+        gap: 12px;
+    }
+
+    .main-nav a {
+        font-size: 13px;
+    }
+}
+
+/* -----------------------
+   Banner placement tweaks
+   ----------------------- */
+
+@media (max-width: 768px) {
+    .banner-left {
+        top: 18%;
+        left: 6%;
+    }
+
+    .banner-right {
+        bottom: 18%;
+        right: 6%;
+    }
+
+    .circle-cta {
+        width: 88px;
+        height: 88px;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-left {
+        top: 16%;
+        left: 5%;
+    }
+
+    .banner-right {
+        bottom: 16%;
+        right: 5%;
+    }
+
+    .circle-cta {
+        width: 78px;
+        height: 78px;
+    }
+}
+
+/* -----------------------
+   Choose section
+   ----------------------- */
+
+@media (max-width: 1024px) {
+    .choose-box {
+        padding: 40px 32px;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 900px) {
+    .choose-box {
+        flex-direction: column;
+        align-items: stretch;
+        width: min(92%, 900px);
+        padding: 28px 22px;
+        gap: 28px;
+    }
+
+    .choose-right {
+        width: 220px;
+        height: 220px;
+        margin: 0 auto;
+    }
+
+    .circle-rotating {
+        width: 200px;
+        height: 200px;
+    }
+
+    .circle-text .right {
+        right: -40px;
+    }
+
+    .circle-text .left {
+        left: -46px;
+    }
+
+    .circle-text .top {
+        top: -24px;
+    }
+
+    .circle-text .bottom {
+        bottom: -24px;
+    }
+}
+
+/* -----------------------
+   Services section extras
+   ----------------------- */
+
+@media (max-width: 600px) {
+    .service-card {
+        width: 92vw;
+        max-width: 420px;
+    }
+
+    .service-card img {
+        height: 180px;
+    }
+
+    .services-header .services-desc {
+        padding: 0 16px;
+    }
+
+    .left-lights,
+    .right-lights {
+        width: 120px;
+        top: -4%;
+    }
+}
+
+/* -----------------------
+   Offer section fine-tune
+   ----------------------- */
+
+@media (max-width: 480px) {
+
+    .offer-left,
+    .offer-right {
+        padding: 24px 5vw;
+    }
+
+    .offer-right img {
+        border-radius: 24px;
+    }
+}
+
+/* -----------------------
+   Projects grid refinements
+   ----------------------- */
+
+@media (max-width: 968px) {
+    .header-text {
+        padding: 28px 24px;
+    }
+
+    .middle-left {
+        padding: 36px 24px;
+    }
+
+    .bottom-center {
+        padding: 36px 24px;
+    }
+}
+
+/* -----------------------
+   Gallery polish
+   ----------------------- */
+
+@media (max-width: 480px) {
+    .carousel-container {
+        padding: 0 16px;
+    }
+
+    .slide-content {
+        height: 260px;
+    }
+}
+
+/* -----------------------
+   Footer small-screen polish
+   ----------------------- */
+
+@media (max-width: 480px) {
+    .footer-info-container {
+        gap: 20px;
+    }
+
+    .contact-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+    }
+
+    .contact-text {
+        font-size: 14px;
+    }
+}
+
+/* -----------------------
+   HD (1366px) and desktop-safe tweaks
+   ----------------------- */
+
+@media (min-width: 1366px) and (max-width: 1919px) {
+
+    /* Maintain current design; light adjustments only */
+    .services-cards {
+        gap: 24px;
+    }
+
+    .service-card {
+        width: 300px;
+    }
+}
+
+/* -----------------------
+   Full HD (1920px)
+   ----------------------- */
+
+@media (min-width: 1920px) and (max-width: 2559px) {
+    .header-container {
+        max-width: 1400px;
+    }
+
+    .services-header .services-desc {
+        max-width: 900px;
+    }
+
+    .service-card {
+        width: 340px;
+    }
+
+    .contact-image {
+        height: 460px;
+    }
+}
+
+/* -----------------------
+   Large screens / >2560px
+   ----------------------- */
+
+@media (min-width: 2560px) {
+    .header-container {
+        max-width: 1680px;
+    }
+
+    .banner-img {
+        min-width: 130%;
+        min-height: 130%;
+    }
+
+    .circle-cta {
+        width: 140px;
+        height: 140px;
+    }
+
+    .choose-box {
+        width: min(1600px, 86%);
+        padding: 80px 100px;
+    }
+
+    .services-header h1 {
+        font-size: 3.5rem;
+    }
+
+    .services-header .services-desc {
+        max-width: 1100px;
+        font-size: 1.25rem;
+    }
+
+    .service-card {
+        width: 380px;
+    }
+
+    .offer-right img {
+        width: 640px;
+        height: 420px;
+    }
+
+    .contact-image {
+        height: 520px;
+    }
+
+    .footer-container,
+    .footer-info-container {
+        max-width: 1680px;
+    }
+}
+
+/* -----------------------
+   Ultra-small safeguard
+   ----------------------- */
+
+@media (max-width: 360px) {
+
+    .banner-left .headline,
+    .banner-right .headline {
+        word-break: break-word;
+    }
+
+    .service-arrow {
+        right: 16px;
+        bottom: 16px;
+    }
+}
