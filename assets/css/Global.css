@@ -280,9 +280,37 @@ body {
 }
 
 .footer-info {
+    position: relative;
     background-color: #1a1a1a;
     padding: 40px 0;
     border-top: 1px solid #333;
+    overflow: hidden;
+    opacity: 0.95;
+    /* ensures background doesn’t overflow */
+}
+
+/* Hidden logo background */
+.footer-info::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -100%;
+    /* initially offscreen */
+    width: 100%;
+    height: 100%;
+    background: url('../images/LOGO DESIGN FINAL 1.svg') no-repeat center;
+    background-size: cover;
+    /* or cover if you want it to fill */
+    opacity: 0.1;
+    /* watermark effect */
+    transition: bottom 0.7s ease-in-out;
+    pointer-events: none;
+    /* allows clicks through */
+}
+
+/* On hover: slide up */
+.footer-info:hover::before {
+    bottom: 0;
 }
 
 .footer-info-container {
