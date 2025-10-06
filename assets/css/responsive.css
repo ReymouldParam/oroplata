@@ -166,6 +166,7 @@ button:focus-visible {
         top: 18%;
         left: 6%;
     }
+
     .banner-right {
         bottom: 18%;
         right: 6%;
@@ -174,6 +175,11 @@ button:focus-visible {
     .circle-cta {
         width: 88px;
         height: 88px;
+    }
+
+    .banner-wrapper {
+        position: relative;
+        height: 100vh;
     }
 }
 
