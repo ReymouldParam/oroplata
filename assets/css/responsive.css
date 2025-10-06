@@ -162,6 +162,22 @@ button:focus-visible {
    ----------------------- */
 
 @media (max-width: 768px) {
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+    .banner-wrapper{
+        padding-top: 10%;
+    }
+
     .banner-left {
         top: 18%;
         left: 6%;
