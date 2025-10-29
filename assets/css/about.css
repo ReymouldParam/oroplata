@@ -7,55 +7,80 @@
 /* ---- Vision + Mission ---- */
 .vm-section {
     display: flex;
-    justify-content: space-between;
-    gap: 40px;
     flex-direction: column;
-    margin-bottom: 40px;
-    margin-top: 40px;
-
+    margin: 40px 0;
 }
 
-.vm-box-vision {
-    /* flex: 1; */
-    background: #111;
-    padding: 40px;
-    gap: 2%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
-
+/* Shared styling for both boxes */
+.vm-box-vision,
 .vm-box-mission {
-    /* flex: 1; */
     background: #111;
     padding: 40px;
-    gap: 2%;
+    border-radius: 16px;
     display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+    gap: 40px;
+    flex-wrap: wrap;
 }
 
-.vm-box h2 {
+/* Reverse layout for Mission section */
+.vm-box-mission {
+    flex-direction: row-reverse;
+}
+
+/* Text content */
+.vm-box-vision h2,
+.vm-box-mission h2 {
     font-size: 28px;
     font-weight: 600;
     margin-bottom: 20px;
-    color: #ffffff;
+    color: #fff;
 }
 
-.vm-box p {
+.vm-box-vision p,
+.vm-box-mission p {
     color: #ccc;
-    font-size: 15px;
-    margin-bottom: 25px;
-    width: 70%;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 0;
+    max-width: 600px;
+}
+
+/* Image box */
+.vm-img {
+    flex: 1;
+    min-width: 280px;
+    max-width: 500px;
 }
 
 .vm-img img {
     width: 100%;
     height: 350px;
+    object-fit: cover;
     border-radius: 16px;
 }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+
+    .vm-box-vision,
+    .vm-box-mission {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+
+    .vm-box-vision p,
+    .vm-box-mission p {
+        width: 100%;
+    }
+
+    .vm-img img {
+        height: 250px;
+    }
+}
+
 
 /* ---- About Directors + Team ---- */
 .content-box {
@@ -73,7 +98,7 @@
     flex: 1;
     padding: 5%;
     border-radius: 20px;
-    border: 1px solid #c6a356;
+    border: 3px solid #c6a356;
     border-left: none;
 }
 
