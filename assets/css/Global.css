@@ -22,8 +22,10 @@ body {
 body {
     font-family: Arial, sans-serif;
     line-height: 1.5;
-    background: #fafafa;
+    /* background: #fafafa; */
     overflow-x: hidden;
+    background: #111;
+
 }
 
 /* Container */
