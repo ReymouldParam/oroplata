@@ -282,114 +282,6 @@ body {
     opacity: 0.7;
 }
 
-.footer-info {
-    position: relative;
-    background-color: #1a1a1a;
-    padding: 40px 0;
-    border-top: 1px solid #333;
-    overflow: hidden;
-    opacity: 0.95;
-    /* ensures background doesn’t overflow */
-}
-
-/* Hidden logo background */
-.footer-info::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -100%;
-    /* initially offscreen */
-    width: 100%;
-    height: 100%;
-    background: url('../images/LOGO DESIGN FINAL 1.svg') no-repeat center;
-    background-size: cover;
-    /* or cover if you want it to fill */
-    opacity: 0.1;
-    /* watermark effect */
-    transition: bottom 0.7s ease-in-out;
-    pointer-events: none;
-}
-
-/* On hover: slide up */
-.footer-info:hover::before {
-    bottom: 0;
-}
-
-.footer-info-container {
-    /* max-width: 1400px; */
-    margin: 0 auto;
-    padding: 0 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.contact-details {
-    display: flex;
-    gap: 60px;
-    align-items: center;
-}
-
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.contact-icon {
-    width: 40px;
-    height: 40px;
-    border: 2px solid #fff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    color: #fff;
-}
-
-.contact-text {
-    font-size: 15px;
-    line-height: 1.5;
-    color: white;
-}
-
-.social-links {
-    display: flex;
-    gap: 15px;
-}
-
-.social-icon {
-    width: 45px;
-    height: 45px;
-    border: 2px solid #fff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-    transition: all 0.3s ease;
-}
-
-.social-icon:hover {
-    background-color: #d4af37;
-    border-color: #d4af37;
-    transform: translateY(-3px);
-}
-
-.footer-bottom {
-    background-color: #0a0a0a;
-    padding: 20px 0;
-    text-align: center;
-}
-
-.footer-bottom p {
-    font-size: 13px;
-    color: #888;
-}
-
 @media (max-width: 1024px) {
     .footer-container {
         grid-template-columns: 1fr;
@@ -458,5 +350,299 @@ body {
         width: 40px;
         height: 40px;
         font-size: 16px;
+    }
+}
+
+
+/* Footer Section  */
+/* ---------- Footer base ---------- */
+.footer-section {
+    position: relative;
+    background: radial-gradient(circle at center, #141414 0%, #070707 100%);
+    color: #fff;
+    overflow: hidden;
+    padding-top: 30px;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+}
+
+/* ---------- Top row (contacts / location / socials) ---------- */
+.footer-toprow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* max-width: 1400px; */
+    margin: 18px auto 10px;
+    padding: 0 48px;
+    z-index: 5;
+    /* above logo */
+    position: relative;
+}
+
+/* left block */
+.top-left .top-contact {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+/* center block */
+.top-center {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* right block */
+.top-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/* contact item */
+.contact-item,
+.location-item {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.2;
+}
+
+/* circular white icon border (same look as provided) */
+.contact-icon {
+    width: 38px;
+    height: 38px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+/* simple text */
+.contact-text {
+    color: #fff;
+    font-size: 15px;
+}
+
+/* social icons row */
+.social-links {
+    display: flex;
+    gap: 14px;
+}
+
+.social-icon {
+    width: 36px;
+    height: 36px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all .25s ease;
+}
+
+.social-icon:hover {
+    background: #d4af37;
+    border-color: #d4af37;
+    color: #000;
+    transform: translateY(-3px);
+}
+
+/* thin divider line (under top row) */
+.footer-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.12);
+    /* max-width: 1400px; */
+    margin: 18px auto;
+    z-index: 5;
+    position: relative;
+}
+
+/* ---------- Spotlights (behind the logo) ---------- */
+/* === Wrapper for 3 evenly spaced spotlights === */
+.footer-lights {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* === Base spotlight style === */
+.footer-light {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(ellipse at bottom center,
+            rgba(255, 255, 255, 0.95) 0%,
+            rgba(200, 200, 200, 0.35) 25%,
+            rgba(70, 70, 70, 0.1) 60%,
+            rgba(0, 0, 0, 0.95) 100%);
+    filter: blur(30px);
+    opacity: 0.8;
+    animation: footerLightPulse 2s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+/* Slight brightness variation for realism */
+.footer-light--left {
+    opacity: 0.78;
+}
+
+.footer-light--center {
+    opacity: 0.92;
+    width: 350px;
+    height: 400px;
+}
+
+/* center stronger */
+.footer-light--right {
+    opacity: 0.78;
+}
+
+/* === Light breathing animation === */
+@keyframes footerLightPulse {
+
+    0%,
+    100% {
+        opacity: 0.45;
+        filter: blur(70px) brightness(0.9);
+        transform: scaleY(1);
+    }
+
+    50% {
+        opacity: 1;
+        filter: blur(40px) brightness(1.4);
+        transform: scaleY(1.12);
+    }
+}
+
+/* ---------- Logo (center, sits above spotlights) ---------- */
+.footer-logo-wrap {
+    position: relative;
+    z-index: 4;
+    /* above spotlights but below top row text */
+    margin-top: 8px;
+    margin-bottom: 18px;
+}
+
+.footer-logo {
+    display: block;
+    margin: 0 auto;
+    height: auto;
+    filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0));
+    /* allows svg to remain clean */
+}
+
+/* small copyright text sits under everything */
+.footer-bottom {
+    position: relative;
+    z-index: 5;
+    padding: 12px 0 40px;
+    background: transparent;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 13px;
+}
+
+/* ---------- Responsive tuning ---------- */
+@media (max-width: 1400px) {
+    .footer-logo {
+        width: 1000px;
+    }
+
+    .footer-light--center {
+        width: 520px;
+        height: 520px;
+        opacity: 0.9;
+    }
+}
+
+@media (max-width: 1200px) {
+    .footer-toprow {
+        padding: 0 30px;
+    }
+
+    .footer-logo {
+        width: 900px;
+    }
+}
+
+@media (max-width: 992px) {
+    .footer-toprow {
+        padding: 0 20px;
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+
+    .top-left,
+    .top-center,
+    .top-right {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .footer-divider {
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+
+    .footer-logo {
+        width: 85%;
+        max-width: 900px;
+    }
+
+    .footer-light--left,
+    .footer-light--center,
+    .footer-light--right {
+        width: 360px;
+        height: 360px;
+        filter: blur(40px);
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-logo {
+        width: 320px;
+    }
+
+    .footer-light--left,
+    .footer-light--center,
+    .footer-light--right {
+        width: 260px;
+        height: 260px;
+        filter: blur(30px);
+    }
+
+    .contact-text {
+        font-size: 14px;
+    }
+
+    .contact-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 14px;
+    }
+
+    .social-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 14px;
     }
 }
