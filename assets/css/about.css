@@ -103,7 +103,7 @@
     border-radius: 20px;
     border: 3px solid #c6a356;
     border-left: none;
-    transform: translateX(-20px);
+    transform: translateX(-45px);
 }
 
 .left-content-team {
@@ -119,24 +119,29 @@
     font-size: 26px;
     margin-bottom: 20px;
     color: #ffffff;
+    padding-left: 10%;
+    margin-top: 10px;
 }
 
 .left-content-team p {
     color: #D9BC72;
     font-size: 15px;
     margin-bottom: 25px;
+    padding-left: 10%;
 }
 
 .left-content h3 {
     font-size: 26px;
     margin-bottom: 20px;
     color: #ffffff;
+    padding-left: 10%;
 }
 
 .left-content p {
     color: #D9BC72;
     font-size: 15px;
     margin-bottom: 25px;
+    padding-left: 10%;
 }
 
 .contact-btn {
@@ -149,6 +154,7 @@
     border-radius: 8px;
     cursor: pointer;
     transition: 0.3s;
+    margin-left: 10%;
 }
 
 .contact-btn:hover {
@@ -173,7 +179,7 @@
 
 .person-card img {
     width: 100%;
-    height: 300px;
+    height: 330px;
     object-fit: cover;
     display: block;
     filter: brightness(0.9);
@@ -181,7 +187,7 @@
 }
 
 .person-card:hover img {
-    filter: brightness(2);
+    filter: brightness(1.5);
 }
 
 .overlay-text {
@@ -204,6 +210,74 @@
     margin: 2px 0 0;
 }
 
+/* Our Team */
+.right-grid-team-alt {
+    flex: 2;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-right: 30px;
+}
+
+.person-card-alt {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.person-card-alt img {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    background-color: #000;
+    /* helps blend with dark background */
+    display: block;
+    transition: 0.3s ease;
+    filter: brightness(0.9);
+}
+
+
+.person-card-alt:hover img {
+    filter: brightness(1.5);
+}
+
+/* New gradient overlay */
+.gradient-overlay-alt {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    z-index: 1;
+}
+
+
+.person-card-alt:hover img {
+    filter: brightness(1.5);
+}
+
+.overlay-text-alt {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    color: #fff;
+    z-index: 2;
+}
+
+.overlay-text-alt h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.overlay-text-alt p {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 2px 0 0;
+}
 
 /* ---- Why Choose Section ---- */
 .why-section {
@@ -242,6 +316,118 @@
 .why-box p {
     font-size: 13px;
     color: #D9BC72;
+}
+
+
+/* Contact us section */
+.work-together {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0e0d0d;
+    min-height: 100vh;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+}
+
+.arcs {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    opacity: 0.5;
+}
+
+.left-arcs {
+    left: 0;
+}
+
+.right-arcs {
+    right: 0;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.quote-btn {
+    background: transparent;
+    color: #c39b3a;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: none;
+    border-bottom: none;
+    border-left: #c39b3a solid 2px;
+    border-right: #c39b3a solid 2px;
+}
+
+.quote-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(255, 223, 128, 0.5);
+    background: linear-gradient(90deg, #c39b3a, #f8e38a, #c39b3a);
+}
+
+.content p {
+    color: #d0b868;
+    font-size: 1.1rem;
+    margin-top: 2rem;
+}
+
+/* Spotlight effect — upward glowing light beam */
+.spotlight {
+    position: absolute;
+    top: 52%;
+    /* slightly lower to anchor glow at bottom */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(ellipse at bottom center,
+            rgba(220, 220, 220, 0.8) 0%,
+            /* bright silver bottom (light source) */
+            rgba(160, 160, 160, 0.25) 25%,
+            /* softer mid-silver fade */
+            rgba(40, 40, 40, 0.1) 60%,
+            /* dim upper fade */
+            rgba(0, 0, 0, 0.9) 100%
+            /* dark top edge */
+        );
+    border-radius: 50%;
+    z-index: 1;
+    filter: blur(30px);
+    pointer-events: none;
+    animation: spotlightPulse 5s ease-in-out infinite;
+}
+
+/* Gentle breathing / flicker animation */
+@keyframes spotlightPulse {
+
+    0%,
+    100% {
+        opacity: 0.25;
+        transform: translate(-50%, -50%) scale(1);
+        filter: blur(30px);
+    }
+
+    50% {
+        opacity: 0.7;
+        transform: translate(-50%, -50%) scale(1.06);
+        filter: blur(22px);
+    }
 }
 
 /* ---- Responsive ---- */
