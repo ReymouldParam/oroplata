@@ -4,3 +4,5 @@ document.addEventListener("scroll", () => {
         if (rect.top < window.innerHeight - 100) el.classList.add("show");
     });
 });
+
+// PRODUCTS Functionality

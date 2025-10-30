@@ -357,6 +357,7 @@ h2 {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 2rem;
+    color: #fff;
 }
 
 .quote-btn {
@@ -455,5 +456,100 @@ h2 {
 
     .about {
         padding: 40px 20px;
+    }
+}
+
+
+/* ==== HOW WE WORK ==== */
+.howwework-section {
+    text-align: center;
+    padding: 30px 0;
+    background: #111;
+}
+
+.explore-text {
+    color: #ccc;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.stage-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 25px 0 40px;
+}
+
+.stage-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    padding: 8px 22px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.stage-btn.active,
+.stage-btn:hover {
+    background: #fff;
+    color: #000;
+}
+
+.howwework-content {
+    max-width: 92%;
+    margin: 0 auto;
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-between;
+    gap: 50px;
+    text-align: left;
+    transition: all 0.4s ease;
+    color: #fff;
+}
+
+.howwework-text {
+    flex: 1;
+}
+
+.stage-text {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.stage-subtext {
+    font-size: 13px;
+    color: #aaa;
+}
+
+.howwework-image {
+    flex: 1;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.howwework-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: 0.5s ease;
+}
+
+.howwework-image img:hover {
+    transform: scale(1.04);
+}
+
+/* ==== Responsive ==== */
+@media (max-width: 900px) {
+    .howwework-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .howwework-text {
+        text-align: center;
     }
 }

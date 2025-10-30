@@ -218,7 +218,31 @@
     <!-- Video Section -->
     <section class="video-section">
     </section>
+    <!-- ===================== HOW WE WORK SECTION ===================== -->
+    <section class="howwework-section">
+        <div class="explore-text">EXPLORE MORE</div>
+        <h2 class="section-title">HOW WE WORK</h2>
 
+        <div class="stage-buttons">
+            <button class="stage-btn active" data-stage="1">STAGE 1</button>
+            <button class="stage-btn" data-stage="2">STAGE 2</button>
+            <button class="stage-btn" data-stage="3">STAGE 3</button>
+        </div>
+
+        <div class="howwework-content">
+            <div class="howwework-text">
+                <h3 class="stage-text">
+                    WE ANALYZE STAGE THE SPACE AND ITS ESSENTIAL FEATURES, DEVELOPING A DETAILED 2D LAYOUT PROPOSAL.
+                </h3>
+                <p class="stage-subtext">
+                    From Interiors To Electrical Planning We Design, Execute, And Handover Seamlessly.
+                </p>
+            </div>
+            <div class="howwework-image">
+                <img src="assets/images/our-vision.png" alt="Stage 1" />
+            </div>
+        </div>
+    </section>
     <!-- Contact Us -->
     <section class="work-together">
         <img src="assets/images/right-arc.png" alt="Left Arcs" class="arcs left-arcs">
@@ -233,6 +257,7 @@
         </div>
         <img src="assets/images/left-arc.png" alt="Right Arcs" class="arcs right-arcs">
     </section>
+
     <!-- ======= FOOTER SECTION ======= -->
     <footer class="footer-section">
 
@@ -288,6 +313,47 @@
             <p>Xyz | © Copyright @ 2023. All Rights Reserved</p>
         </div>
     </footer>
+
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            const stageData = {
+                1: {
+                    text: "WE ANALYZE STAGE THE SPACE AND ITS ESSENTIAL FEATURES, DEVELOPING A DETAILED 2D LAYOUT PROPOSAL.",
+                    subtext: "From Interiors To Electrical Planning We Design, Execute, And Handover Seamlessly.",
+                    img: "assets/images/our-vision.png"
+                },
+                2: {
+                    text: "WE CURATE DESIGN CONCEPTS, MATERIAL SELECTION, AND PREPARE 3D VISUALIZATIONS FOR CLIENT APPROVAL.",
+                    subtext: "Design Presentation, Mood Boards, And Detailing For Perfect Execution.",
+                    img: "assets/images/service-card3.jpg"
+                },
+                3: {
+                    text: "WE EXECUTE, SUPERVISE, AND DELIVER PROJECTS WITH FINE CRAFTSMANSHIP AND PROMPT HANDOVER.",
+                    subtext: "Ensuring Precision, Quality, And Timely Completion For Every Project.",
+                    img: "assets/images/service-card1.jpg"
+                }
+            };
+
+            $(".stage-btn").click(function () {
+                $(".stage-btn").removeClass("active");
+                $(this).addClass("active");
+
+                const stage = $(this).data("stage");
+                const data = stageData[stage];
+
+                $(".stage-text, .stage-subtext, .howwework-image img").fadeOut(200, function () {
+                    $(".stage-text").text(data.text);
+                    $(".stage-subtext").text(data.subtext);
+                    $(".howwework-image img").attr("src", data.img);
+                    $(".stage-text, .stage-subtext, .howwework-image img").fadeIn(400);
+                });
+            });
+        });
+    </script>
+
 
 </body>
 
