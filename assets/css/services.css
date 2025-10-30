@@ -1,0 +1,222 @@
+/* === Base === */
+.services-section {
+    background: #000;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    padding-bottom: 80px;
+}
+
+/* === Banner === */
+.services-banner {
+    background-image: url("../images/service-banner-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    padding: 120px 20px 80px;
+}
+
+.services-banner h2 {
+    font-size: 42px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.services-banner p {
+    font-size: 16px;
+    color: #ccc;
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+/* === Section Base === */
+.services-wrapper {
+    background: #141414;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    /* padding: 1px 0; */
+    padding-top: 40px;
+    padding-bottom: 1px;
+}
+
+/* === Header Line Above Each Block === */
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0 auto 18px;
+    /* max-width: 1400px;
+    padding: 0 40px; */
+}
+
+.section-tag {
+    font-size: 20px;
+    color: #ccc;
+    letter-spacing: 0.5px;
+    margin-right: 12px;
+    white-space: nowrap;
+    padding-left: 15px;
+}
+
+.section-line {
+    flex: 1;
+    height: 1px;
+    background: #fff;
+}
+
+/* === Main Service Layout === */
+.service-content {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    /* max-width: 1400px; */
+    margin: 0 auto 60px;
+    gap: 30px;
+    /* padding: 0 40px; */
+}
+
+/* === Left Black Box === */
+.service-left {
+    background: #0b0b0b;
+    border: 3px solid #b2902e;
+    border-radius: 26px;
+    padding: 50px 40px;
+    flex: 0 0 32%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform: translateX(-20px);
+    border-left: none;
+}
+
+.service-left h3 {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    padding-left: 15px;
+}
+
+.service-left p {
+    color: #dcdcdc;
+    font-size: 15px;
+    margin-bottom: 28px;
+    padding-left: 15px;
+}
+
+/* === Gold Gradient Button === */
+.quote-button {
+    background: linear-gradient(90deg, #b2902e, #f2d573);
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 28px;
+    font-size: 13px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+    letter-spacing: 0.5px;
+    margin-left: 15px;
+    width: fit-content;
+}
+
+.quote-button .arrow {
+    margin-left: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.quote-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 18px rgba(242, 213, 115, 0.35);
+}
+
+/* === Right White Content Box === */
+.service-right {
+    background: transparent;
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+    /* gap: 25px; */
+}
+
+.service-info {
+    background: #fff;
+    color: #000;
+    border-top-left-radius: 24px;
+    border-bottom-left-radius: 24px;
+    padding: 40px 50px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.service-info h4 {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.service-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-info li {
+    font-size: 18px;
+    color: #111;
+    font-weight: 500;
+    margin-bottom: 10px;
+    padding-left: 14px;
+    position: relative;
+}
+
+.service-info li::before {
+    content: "▪";
+    position: absolute;
+    left: 0;
+    color: #000;
+}
+
+/* === Image Panel === */
+.service-image {
+    /* border-radius: 24px; */
+    overflow: hidden;
+    width: 320px;
+    min-height: 100%;
+}
+
+.service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.4s ease;
+}
+
+.service-image:hover img {
+    transform: scale(1.05);
+}
+
+/* === Responsive === */
+@media (max-width: 1024px) {
+    .service-content {
+        flex-direction: column;
+    }
+
+    .service-right {
+        flex-direction: column;
+    }
+
+    .service-image {
+        width: 100%;
+        height: 250px;
+    }
+}
