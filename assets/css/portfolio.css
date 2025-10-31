@@ -1,24 +1,25 @@
+/* ========== Base Banner Layout ========== */
 .banner {
     position: relative;
     width: 100%;
     height: 100vh;
     overflow: hidden;
     display: flex;
-    margin-top: 5%;
 }
 
+/* Each banner section */
 .banner-item {
     flex: 1;
     position: relative;
     background-size: cover;
     background-position: center;
-    transition: flex 0.7s cubic-bezier(.2, .9, .2, 1), opacity 0.45s ease;
+    transition: all 0.7s cubic-bezier(.2, .9, .2, 1);
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: default;
 }
 
+/* Dark overlay on each image */
 .banner-item::before {
     content: "";
     position: absolute;
@@ -28,72 +29,101 @@
     z-index: 1;
 }
 
-/* centered text */
+/* Category Text */
 .banner-item h2 {
     position: relative;
-    z-index: 3;
-    margin: 0;
+    z-index: 5;
+    color: #fff;
     font-size: 26px;
     letter-spacing: 0.8px;
     text-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
-    text-align: center;
     cursor: pointer;
     transition: all 0.4s ease;
-    color: #fff;
+    text-align: center;
+    text-decoration: underline;
 }
 
-.banner-item h2:hover {
+/* .banner-item h2:hover {
     background: rgba(255, 255, 255, 0.15);
     border-radius: 20px;
     padding: 10px 20px;
     transform: scale(1.05);
-}
+} */
 
-/* when expanded */
-.banner.has-active .banner-item:not(.active) {
-    opacity: 0;
-    pointer-events: none;
-    transform: scale(0.95);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-
+/* ========== Active State ========== */
 .banner-item.active {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    z-index: 20;
-    flex: none;
+    z-index: 2;
+    animation: expandFromCenter 0.7s cubic-bezier(.2, .9, .2, 1) forwards;
+}
+
+/* Expand animation */
+@keyframes expandFromCenter {
+    0% {
+        transform: scaleX(0.3);
+        opacity: 0.7;
+    }
+
+    60% {
+        transform: scaleX(1.05);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scaleX(1);
+        opacity: 1;
+    }
+}
+
+/* Keep all titles visible when expanded */
+.banner.has-active .banner-item {
+    opacity: 1;
+    pointer-events: none;
+    width: 100%;
+    /* disable image clicks */
     display: flex;
-    align-items: center;
     justify-content: center;
-    transition: all 0.6s cubic-bezier(.2, .9, .2, 1);
+    align-items: center;
+    text-decoration: none;
 }
 
-.banner-item.active::before {
-    background: rgba(0, 0, 0, 0.08);
-}
-
-.close-btn {
+/* Position all titles horizontally centered across */
+.banner.has-active .banner-item h2 {
     position: absolute;
-    right: 18px;
-    top: 18px;
-    z-index: 30;
-    background: rgba(0, 0, 0, 0.45);
-    color: #fff;
-    border: 0;
-    padding: 8px 12px;
-    font-size: 14px;
-    border-radius: 6px;
-    cursor: pointer;
-    display: none;
+    /* top: 50%;
+    transform: translateY(-50%); */
+    /* background: rgba(0, 0, 0, 0.08); */
+    z-index: 10;
+    opacity: 0.8;
+    font-weight: 400;
+    padding: 10px 20px;
+    border-radius: 12px;
+    pointer-events: all;
+    transform: translateY(-145px);
+    /* allow text click */
 }
 
-.banner.has-active .close-btn {
-    display: block;
+/* Highlight active text */
+.banner-item.active h2 {
+    font-size: 34px;
+    opacity: 1;
+    z-index: 20;
+    transform: translateY(-50%) scale(1.1);
+    text-decoration: none;
 }
 
+
+/* Optional depth: dim non-active texts slightly */
+.banner.has-active .banner-item:not(.active) h2 {
+    opacity: 0.6;
+    transform: translateY(-50%) scale(1);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* ========== Responsive Design ========== */
 @media (max-width:900px) {
     .banner {
         flex-direction: column;
@@ -106,5 +136,21 @@
     .banner-item.active {
         position: absolute;
         inset: 0;
+    }
+
+    .banner.has-active .banner-item h2 {
+        position: static;
+        transform: none;
+        display: block;
+        text-align: center;
+        margin: 10px auto;
+    }
+
+    .banner-item h2 {
+        font-size: 22px;
+    }
+
+    .banner-item.active h2 {
+        font-size: 26px;
     }
 }

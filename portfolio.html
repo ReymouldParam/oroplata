@@ -47,8 +47,6 @@
         </div>
     </header>
     <section class="banner" aria-label="Portfolio banner">
-        <button class="close-btn" aria-hidden="true">Close</button>
-
         <div class="banner-item" style="background-image:url('assets/images/service-card1.jpg');">
             <h2>Web Design</h2>
         </div>
@@ -62,6 +60,7 @@
             <h2>Branding</h2>
         </div>
     </section>
+
 
     <!-- ======= FOOTER SECTION ======= -->
     <footer class="footer-section">
@@ -124,64 +123,44 @@
         $(function () {
             const $banner = $('.banner');
             const $items = $banner.find('.banner-item');
-            const $close = $banner.find('.close-btn');
 
-            // Trigger only on click (not hover)
+            // Handle initial click or hover (when none is active yet)
+            $items.find('h2').on('mouseenter', function (e) {
+                if ($banner.hasClass('has-active')) return; // disable hover if already active
+                const $thisItem = $(this).closest('.banner-item');
+                $items.removeClass('active');
+                $thisItem.addClass('active');
+                $banner.addClass('has-active');
+            });
+
+            // Handle click — always allowed (both before and after active)
             $items.find('h2').on('click', function (e) {
                 e.stopPropagation();
                 const $thisItem = $(this).closest('.banner-item');
 
-                if ($thisItem.hasClass('active')) {
-                    deactivateAll();
-                    return;
-                }
+                // If already active, ignore
+                if ($thisItem.hasClass('active')) return;
 
                 $items.removeClass('active');
                 $thisItem.addClass('active');
                 $banner.addClass('has-active');
             });
 
-            // --- NEW: Hover effect on text (adds temporary activation)
-            $items.find('h2').on('mouseenter', function (e) {
-                const $thisItem = $(this).closest('.banner-item');
-                if ($banner.hasClass('has-active')) return; // don't override click active
+            // Reset when mouse leaves entire banner (only if not actively expanded)
+            $banner.on('mouseleave', function () {
+                if ($banner.hasClass('has-active')) return; // keep expanded
                 $items.removeClass('active');
-                $thisItem.addClass('active');
-                $banner.addClass('has-active');
+                $banner.removeClass('has-active');
             });
 
-            $items.find('h2').on('mouseleave', function (e) {
-                if ($banner.hasClass('has-active')) return; // skip if click is active
-                deactivateAll();
-            });
-
-
-            // Close button handler
-
-            $close.on('click', function (e) {
-                e.stopPropagation();
-                deactivateAll();
-            });
-
-
-
-
-            function deactivateAll() {
-                $items.removeClass('active');
-                setTimeout(() => {
-                    $banner.removeClass('has-active');
-                    $items.css({ opacity: '', transform: '', pointerEvents: '' });
-                }, 400); // matches transition duration
-            }
-
-
-            // Accessibility support
+            // Keyboard accessibility
             $items.find('h2').attr('tabindex', 0).on('keydown', function (e) {
                 if (e.key === 'Enter' || e.key === ' ') {
                     $(this).trigger('click');
                     e.preventDefault();
                 } else if (e.key === 'Escape') {
-                    deactivateAll();
+                    $items.removeClass('active');
+                    $banner.removeClass('has-active');
                 }
             });
         });
