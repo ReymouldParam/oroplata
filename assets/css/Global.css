@@ -47,12 +47,12 @@ body {
     align-items: center;
     background: #111;
     z-index: 1000;
-    opacity: 0.95;
+    opacity: 0.9;
 }
 
 /* Logo */
 .logo-container img {
-    height: 45px;
+    height: 25px;
     width: auto;
 }
 

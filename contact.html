@@ -26,9 +26,8 @@
         <div class="header-container header-inner">
             <!-- Logo -->
             <div class="logo-container">
-                <img src="assets/images/LOGO DESIGN FINAL 1.svg" alt="Oro Plata Logo" />
+                <img src="assets/images/Website-logo.svg" alt="Oro Plata Logo" />
             </div>
-
             <!-- Navigation -->
             <nav class="main-nav" role="navigation" aria-label="Primary">
                 <a href="./services.html" class="active">Services</a>
@@ -36,13 +35,11 @@
                 <a href="./about.html">About Us</a>
                 <a href="./contact.html">Contact</a>
             </nav>
-
             <!-- Phone -->
             <div class="header-contact">
                 <i class="fa-solid fa-phone"></i>
                 <span>+91-9765479514</span>
             </div>
-
             <!-- Mobile menu toggle -->
             <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
         </div>
@@ -75,11 +72,9 @@
             </div>
 
         </div>
-
         <p class="form-desc">
             Complete The Form Below, And We’ll Respond Within 24 Hours.
         </p>
-
         <div class="contact-form-wrapper">
             <div class="form-left">
                 <label>What Kind Of Project Would You Like Us To Craft For You?</label>
@@ -111,7 +106,6 @@
                 <button class="send-btn">Send ↗</button>
             </div>
         </div>
-
         <!-- =================== FAQ Section =================== -->
         <div class="faq-section">
             <div class="faq-left">
@@ -224,11 +218,27 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
-            $(".faq-question").click(function () {
-                const parent = $(this).parent();
-                parent.toggleClass("active");
-                parent.find(".faq-answer").slideToggle(200);
-                $(".faq-item").not(parent).removeClass("active").find(".faq-answer").slideUp(200);
+            $(".faq-question").on("click mouseenter", function () {
+                const parent = $(this).closest(".faq-item");
+                const answer = parent.find(".faq-answer");
+
+                // If already active and it's a click, close it
+                if (event.type === "click" && parent.hasClass("active")) {
+                    parent.removeClass("active");
+                    answer.stop(true, true).slideUp(200);
+                } else {
+                    // Close all others first
+                    $(".faq-item.active")
+                        .not(parent)
+                        .removeClass("active")
+                        .find(".faq-answer")
+                        .stop(true, true)
+                        .slideUp(200);
+
+                    // Open this one
+                    parent.addClass("active");
+                    answer.stop(true, true).slideDown(200);
+                }
             });
         });
     </script>
