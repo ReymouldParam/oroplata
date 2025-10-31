@@ -46,6 +46,22 @@
             <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
         </div>
     </header>
+    <section class="banner" aria-label="Portfolio banner">
+        <button class="close-btn" aria-hidden="true">Close</button>
+
+        <div class="banner-item" style="background-image:url('assets/images/service-card1.jpg');">
+            <h2>Web Design</h2>
+        </div>
+        <div class="banner-item" style="background-image:url('assets/images/service-card2.jpg');">
+            <h2>Photography</h2>
+        </div>
+        <div class="banner-item" style="background-image:url('assets/images/service-card3.jpg');">
+            <h2>Illustration</h2>
+        </div>
+        <div class="banner-item" style="background-image:url('assets/images/service-card4.jpg');">
+            <h2>Branding</h2>
+        </div>
+    </section>
 
     <!-- ======= FOOTER SECTION ======= -->
     <footer class="footer-section">
@@ -104,6 +120,73 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script src="assets/JS-animation/home-page.js" defer></script>
+    <script>
+        $(function () {
+            const $banner = $('.banner');
+            const $items = $banner.find('.banner-item');
+            const $close = $banner.find('.close-btn');
+
+            // Trigger only on click (not hover)
+            $items.find('h2').on('click', function (e) {
+                e.stopPropagation();
+                const $thisItem = $(this).closest('.banner-item');
+
+                if ($thisItem.hasClass('active')) {
+                    deactivateAll();
+                    return;
+                }
+
+                $items.removeClass('active');
+                $thisItem.addClass('active');
+                $banner.addClass('has-active');
+            });
+
+            // --- NEW: Hover effect on text (adds temporary activation)
+            $items.find('h2').on('mouseenter', function (e) {
+                const $thisItem = $(this).closest('.banner-item');
+                if ($banner.hasClass('has-active')) return; // don't override click active
+                $items.removeClass('active');
+                $thisItem.addClass('active');
+                $banner.addClass('has-active');
+            });
+
+            $items.find('h2').on('mouseleave', function (e) {
+                if ($banner.hasClass('has-active')) return; // skip if click is active
+                deactivateAll();
+            });
+
+
+            // Close button handler
+
+            $close.on('click', function (e) {
+                e.stopPropagation();
+                deactivateAll();
+            });
+
+
+
+
+            function deactivateAll() {
+                $items.removeClass('active');
+                setTimeout(() => {
+                    $banner.removeClass('has-active');
+                    $items.css({ opacity: '', transform: '', pointerEvents: '' });
+                }, 400); // matches transition duration
+            }
+
+
+            // Accessibility support
+            $items.find('h2').attr('tabindex', 0).on('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    $(this).trigger('click');
+                    e.preventDefault();
+                } else if (e.key === 'Escape') {
+                    deactivateAll();
+                }
+            });
+        });
+    </script>
+
 </body>
 
 </html>
