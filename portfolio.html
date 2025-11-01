@@ -8,6 +8,8 @@
     <!-- Global styles -->
     <link rel="stylesheet" href="assets/css/Global.css">
     <!-- Homepage styles -->
+    <link rel="stylesheet" href="assets/css/about.css" />
+    <!-- Homepage styles -->
     <link rel="stylesheet" href="assets/css/portfolio.css" />
     <!-- Responsiveness -->
     <link rel="stylesheet" href="assets/css/responsive.css" />
@@ -48,17 +50,57 @@
     </header>
     <section class="banner" aria-label="Portfolio banner">
         <div class="banner-item" style="background-image:url('assets/images/service-card1.jpg');">
-            <h2>Web Design</h2>
+            <h2>TURKEY INTERIOR PROJECTS</h2>
         </div>
         <div class="banner-item" style="background-image:url('assets/images/service-card2.jpg');">
-            <h2>Photography</h2>
+            <h2>DESIGN & CONSULTATION</h2>
         </div>
         <div class="banner-item" style="background-image:url('assets/images/service-card3.jpg');">
-            <h2>Illustration</h2>
+            <h2>RESEIDENTIAL INTERIORS</h2>
         </div>
         <div class="banner-item" style="background-image:url('assets/images/service-card4.jpg');">
-            <h2>Branding</h2>
+            <h2>COMMERCIAL INTERIORS</h2>
         </div>
+    </section>
+    <!-- Project Section -->
+    <section class="project-showcase">
+        <div class="project-pagination">
+            <i class="fas fa-chevron-left prev"></i>
+            <span class="page-num current">01</span>
+            <span class="page-num">02</span>
+            <span class="page-num">03</span>
+            <i class="fas fa-chevron-right next"></i>
+        </div>
+
+        <div class="project-container fade show">
+            <div class="project-left">
+                <img src="https://picsum.photos/900/600?random=1" alt="Kama Apartment" class="main-img">
+            </div>
+            <div class="project-right">
+                <h2 class="project-title">KAMA APARTMENT</h2>
+                <p class="project-desc">From Interiors To Electrical Planning<br>We Design, Execute, And Handover
+                    Seamlessly.</p>
+                <div class="project-thumbs">
+                    <img src="https://picsum.photos/400/250?random=11" alt="">
+                    <img src="https://picsum.photos/400/250?random=12" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us -->
+    <section class="work-together">
+        <img src="assets/images/right-arc.png" alt="Left Arcs" class="arcs left-arcs">
+        <div class="content">
+            <h2>Let’s Work Together</h2>
+            <button class="quote-btn">CONTACT US</button>
+            <p>where we believe that every space has a story to tell.</p>
+            <div class="spotlight"></div>
+            <div class="floor-light">
+                <img src="assets/images/spot-light-base.svg" alt="Floor-light-base" />
+            </div>
+        </div>
+        <img src="assets/images/left-arc.png" alt="Right Arcs" class="arcs right-arcs">
     </section>
     <!-- ======= FOOTER SECTION ======= -->
     <footer class="footer-section">
@@ -114,56 +156,84 @@
             <p>Xyz | © Copyright @ 2023. All Rights Reserved</p>
         </div>
     </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="assets/JS-animation/home-page.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-    <script src="assets/JS-animation/home-page.js" defer></script>
     <script>
-        $(function () {
-            const $banner = $('.banner');
-            const $items = $banner.find('.banner-item');
+        $(document).ready(function () {
+            // Project data
+            const projects = [
+                {
+                    img: "https://picsum.photos/900/600?random=1",
+                    title: "KAMA APARTMENT",
+                    desc: "From Interiors To Electrical Planning<br>We Design, Execute, And Handover Seamlessly.",
+                    thumbs: [
+                        "https://picsum.photos/400/250?random=11",
+                        "https://picsum.photos/400/250?random=12"
+                    ]
+                },
+                {
+                    img: "https://picsum.photos/900/600?random=2",
+                    title: "SERENE VILLA",
+                    desc: "Modern comfort blended with artistic elegance.<br>Designed with attention to every detail.",
+                    thumbs: [
+                        "https://picsum.photos/400/250?random=21",
+                        "https://picsum.photos/400/250?random=22"
+                    ]
+                },
+                {
+                    img: "https://picsum.photos/900/600?random=3",
+                    title: "URBAN HAVEN",
+                    desc: "Elegant city living with timeless aesthetics.<br>Designed for modern sophistication.",
+                    thumbs: [
+                        "https://picsum.photos/400/250?random=31",
+                        "https://picsum.photos/400/250?random=32"
+                    ]
+                },
+            ];
 
-            // Handle initial click or hover (when none is active yet)
-            $items.find('h2').on('mouseenter', function (e) {
-                if ($banner.hasClass('has-active')) return; // disable hover if already active
-                const $thisItem = $(this).closest('.banner-item');
-                $items.removeClass('active');
-                $thisItem.addClass('active');
-                $banner.addClass('has-active');
+            let currentIndex = 0;
+            const total = projects.length;
+
+            function updateProject(index) {
+                const project = projects[index];
+                const $container = $(".project-container");
+
+                $container.removeClass("show");
+
+                setTimeout(() => {
+                    $(".main-img").attr("src", project.img);
+                    $(".project-title").html(project.title);
+                    $(".project-desc").html(project.desc);
+                    $(".project-thumbs").html(`
+            <img src="${project.thumbs[0]}" alt="">
+            <img src="${project.thumbs[1]}" alt="">
+          `);
+                    $container.addClass("show");
+
+                    // Update pagination
+                    $(".project-pagination .page-num").removeClass("current");
+                    $(".project-pagination .page-num").eq(index).addClass("current");
+                }, 400);
+            }
+
+            $(".next").on("click", function () {
+                currentIndex = (currentIndex + 1) % total;
+                updateProject(currentIndex);
             });
 
-            // Handle click — always allowed (both before and after active)
-            $items.find('h2').on('click', function (e) {
-                e.stopPropagation();
-                const $thisItem = $(this).closest('.banner-item');
-
-                // If already active, ignore
-                if ($thisItem.hasClass('active')) return;
-
-                $items.removeClass('active');
-                $thisItem.addClass('active');
-                $banner.addClass('has-active');
+            $(".prev").on("click", function () {
+                currentIndex = (currentIndex - 1 + total) % total;
+                updateProject(currentIndex);
             });
 
-            // Reset when mouse leaves entire banner (only if not actively expanded)
-            $banner.on('mouseleave', function () {
-                if ($banner.hasClass('has-active')) return; // keep expanded
-                $items.removeClass('active');
-                $banner.removeClass('has-active');
-            });
-
-            // Keyboard accessibility
-            $items.find('h2').attr('tabindex', 0).on('keydown', function (e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    $(this).trigger('click');
-                    e.preventDefault();
-                } else if (e.key === 'Escape') {
-                    $items.removeClass('active');
-                    $banner.removeClass('has-active');
-                }
-            });
+            // Auto cycle every 5 seconds
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % total;
+                updateProject(currentIndex);
+            }, 5000);
         });
     </script>
-
 </body>
 
 </html>
