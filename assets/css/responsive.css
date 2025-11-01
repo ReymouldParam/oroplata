@@ -131,7 +131,7 @@ button:focus-visible {
 /* Mobile phones */
 @media (max-width: 480px) {
     .logo-container img {
-        height: 38px;
+        height: 25px;
     }
 
     .header-contact span {

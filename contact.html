@@ -76,25 +76,40 @@
             Complete The Form Below, And We’ll Respond Within 24 Hours.
         </p>
         <div class="contact-form-wrapper">
-            <div class="form-left">
-                <label>What Kind Of Project Would You Like Us To Craft For You?</label>
-                <textarea placeholder="Describe your project details..."></textarea>
-                <small style="color: #fff; font-weight: 400;">For example: contemporary classic, minimalist, woodcraft,
-                    maintenance...</small>
+            <form action="contact.php" method="POST" class="project-form">
+                <div class="form-left">
+                    <label for="projectDetails">What Kind Of Project Would You Like Us To Craft For You?</label>
+                    <textarea id="projectDetails" name="projectDetails" placeholder="Describe your project details..."
+                        required></textarea>
+                    <small style="color: #fff; font-weight: 400;">
+                        For example: contemporary classic, minimalist, woodcraft, maintenance...
+                    </small>
 
-                <label>What’s Your Budget Range For This Your Project?</label>
-                <div class="budget-options">
-                    <button>20k - 40k</button>
-                    <button>40k - 60k</button>
-                    <button>60k - 80k</button>
-                    <button>80k - 100k</button>
-                    <button>100k +</button>
+                    <label>What’s Your Budget Range For This Project?</label>
+                    <div class="budget-options">
+                        <label><input type="radio" name="budget" value="20k - 40k" required> 20k - 40k</label>
+                        <label><input type="radio" name="budget" value="40k - 60k"> 40k - 60k</label>
+                        <label><input type="radio" name="budget" value="60k - 80k"> 60k - 80k</label>
+                        <label><input type="radio" name="budget" value="80k - 100k"> 80k - 100k</label>
+                        <label><input type="radio" name="budget" value="100k +"> 100k +</label>
+                    </div>
+
+                    <p class="budget-note">
+                        By residential interior fee basis: includes transforming the space, construction works,
+                        furniture,
+                        lighting fixtures, accessories, and other finishes.
+                    </p>
+
+                    <div class="user-info">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="text" name="number" placeholder="Phone Number" required>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Enquiry</button>
                 </div>
-                <p class="budget-note">
-                    By residential interior fee basis: includes transforming the space, construction works, furniture,
-                    lighting fixtures, accessories, and other finishes.
-                </p>
-            </div>
+            </form>
+
 
             <div class="form-right">
                 <label>Send Your Details</label>
@@ -103,7 +118,7 @@
                 <input type="email" placeholder="Enter your email address">
                 <textarea placeholder="Leave your message"></textarea>
 
-                <button class="send-btn">Send ↗</button>
+                <button class="send-btn">Send </button>
             </div>
         </div>
         <!-- =================== FAQ Section =================== -->
