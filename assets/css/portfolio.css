@@ -19,7 +19,7 @@
     justify-content: center;
 }
 
-/* Dark overlay on each image */
+/* Dark overlay */
 .banner-item::before {
     content: "";
     position: absolute;
@@ -29,28 +29,22 @@
     z-index: 1;
 }
 
-/* Category Text */
+/* Category text (base) */
 .banner-item h2 {
     position: relative;
     z-index: 5;
-    color: #fff;
+    color: rgba(255, 255, 255, 0.75);
     font-size: 26px;
     letter-spacing: 0.8px;
-    text-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
     cursor: pointer;
     transition: all 0.4s ease;
     text-align: center;
+    font-weight: 500;
     text-decoration: underline;
+    white-space: nowrap;
 }
 
-/* .banner-item h2:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 20px;
-    padding: 10px 20px;
-    transform: scale(1.05);
-} */
-
-/* ========== Active State ========== */
+/* ========== Active Background ========== */
 .banner-item.active {
     position: absolute;
     inset: 0;
@@ -60,7 +54,6 @@
     animation: expandFromCenter 0.7s cubic-bezier(.2, .9, .2, 1) forwards;
 }
 
-/* Expand animation */
 @keyframes expandFromCenter {
     0% {
         transform: scaleX(0.3);
@@ -78,52 +71,54 @@
     }
 }
 
-/* Keep all titles visible when expanded */
+/* Keep all visible */
 .banner.has-active .banner-item {
     opacity: 1;
     pointer-events: none;
     width: 100%;
-    /* disable image clicks */
     display: flex;
     justify-content: center;
     align-items: center;
-    text-decoration: none;
+
 }
 
-/* Position all titles horizontally centered across */
+/* ========== FIX: Place all four texts in one horizontal row ========== */
 .banner.has-active .banner-item h2 {
     position: absolute;
-    /* top: 50%;
-    transform: translateY(-50%); */
-    /* background: rgba(0, 0, 0, 0.08); */
-    z-index: 10;
-    opacity: 0.8;
-    font-weight: 400;
-    padding: 10px 20px;
-    border-radius: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    /* justify-content: space-evenly; */
     pointer-events: all;
-    transform: translateY(-145px);
-    /* allow text click */
+    opacity: 0.7;
+    font-weight: 400;
+    /* text-decoration: none; */
+    width: 90%;
+    margin: auto;
+    /* position: relative; */
+    flex: unset;
+
 }
 
-/* Highlight active text */
+/* Highlight active text but keep in row */
 .banner-item.active h2 {
-    font-size: 34px;
+    color: #fff;
     opacity: 1;
-    z-index: 20;
-    transform: translateY(-50%) scale(1.1);
-    text-decoration: none;
+    font-weight: 900;
+    justify-content: flex-end;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
 }
 
-
-/* Optional depth: dim non-active texts slightly */
+/* Slightly dim others */
 .banner.has-active .banner-item:not(.active) h2 {
     opacity: 0.6;
-    transform: translateY(-50%) scale(1);
-    transition: opacity 0.4s ease, transform 0.4s ease;
+    transition: opacity 0.4s ease;
 }
 
-/* ========== Responsive Design ========== */
+/* ========== Responsive ========== */
 @media (max-width:900px) {
     .banner {
         flex-direction: column;
@@ -131,11 +126,6 @@
 
     .banner-item {
         min-height: 25vh;
-    }
-
-    .banner-item.active {
-        position: absolute;
-        inset: 0;
     }
 
     .banner.has-active .banner-item h2 {
@@ -151,6 +141,6 @@
     }
 
     .banner-item.active h2 {
-        font-size: 26px;
+        font-size: 24px;
     }
 }
