@@ -18,6 +18,9 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 
 <body>
@@ -47,6 +50,27 @@
             <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
         </div>
     </header>
+    <section class="about-banner">
+        <div class="banner-bg"></div>
+        <div class="banner-overlay"></div>
+
+        <div class="banner-content">
+            <div class="banner-text" id="text1">WE CRAFT EXPERIENCES.</div>
+            <div class="banner-text" id="text2">Spaces that inspire and elevate everyday living.</div>
+            <div class="banner-text" id="text3">From concept to completion, we deliver elegance.</div>
+            <div class="banner-text" id="text4">Residential, Commercial, and Hospitality interiors.</div>
+            <div class="banner-text" id="text5">Driven by design. Defined by craftsmanship.</div>
+            <div class="banner-text" id="text6">OROPLATA — Where ideas take shape.</div>
+        </div>
+
+        <div class="scroll-line-container">
+            <div class="scroll-track">
+                <div class="scroll-progress"></div>
+            </div>
+            <div class="scroll-text">Section Scroll</div>
+        </div>
+    </section>
+
     <section class="about">
         <!-- Vision + Mission -->
         <div class="vm-section">
@@ -351,6 +375,62 @@
         });
     </script>
 
+    <script>
+        window.addEventListener("load", () => {
+            const tl = gsap.timeline({ delay: 0.5 });
+
+            // Background cinematic motion
+            gsap.fromTo(".banner-bg",
+                { opacity: 0, scale: 1.2, xPercent: -5 },
+                { opacity: 1, scale: 1.05, xPercent: 0, duration: 3, ease: "power3.out" }
+            );
+
+            gsap.to(".banner-bg", {
+                scale: 1.1,
+                xPercent: 3,
+                duration: 20,
+                ease: "none",
+                repeat: -1,
+                yoyo: true,
+            });
+
+            // Overlay fade
+            gsap.to(".banner-overlay", {
+                opacity: 1,
+                duration: 1.5,
+                ease: "power2.out",
+            });
+
+            // Sequence of centered text animations
+            const texts = [
+                { id: "#text1", from: { x: -200 }, stay: 2.5 },
+                { id: "#text2", from: { x: 200 }, stay: 2.5 },
+                { id: "#text3", from: { y: 150 }, stay: 2.5 },
+                { id: "#text4", from: { y: -150 }, stay: 2.5 },
+                { id: "#text5", from: { x: -200 }, stay: 2.5 },
+                { id: "#text6", from: { y: 150 }, stay: 3 }
+            ];
+
+            texts.forEach((txt) => {
+                tl.fromTo(txt.id,
+                    { ...txt.from, opacity: 0 },
+                    { x: 0, y: 0, opacity: 1, duration: 1.2, ease: "power3.out" }
+                )
+                    .to(txt.id,
+                        { opacity: 0, y: -50, duration: 1, delay: txt.stay, ease: "power2.inOut" }
+                    );
+            });
+
+            // Scroll progress animation
+            gsap.to(".scroll-progress", {
+                width: "100%",
+                duration: 4,
+                ease: "power1.inOut",
+                repeat: -1,
+                yoyo: true,
+            });
+        });
+    </script>
 
 </body>
 
