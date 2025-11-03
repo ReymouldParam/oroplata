@@ -218,7 +218,7 @@ button:focus-visible {
     .choose-box {
         flex-direction: column;
         align-items: stretch;
-        width: min(92%, 900px);
+        width: 100%;
         padding: 28px 22px;
         gap: 28px;
     }
@@ -1070,6 +1070,7 @@ button:focus-visible {
 
     .choose-box {
         padding: 20px 15px;
+        width: 100%;
     }
 }
 
@@ -1085,35 +1086,10 @@ button:focus-visible {
     }
 
     .about-banner {
-        height: 100vh;
+        height: 60vh;
     }
 
     .work-together {
         min-height: 100vh;
-    }
-}
-
-/* ==================== PRINT STYLES ==================== */
-
-@media print {
-
-    .site-header,
-    .nav-toggle,
-    .circle-cta,
-    .slick-arrow,
-    .slick-dots,
-    .footer-lights,
-    .arcs,
-    .spotlight {
-        display: none !important;
-    }
-
-    .banner-wrapper {
-        height: auto;
-        page-break-after: always;
-    }
-
-    section {
-        page-break-inside: avoid;
     }
 }
