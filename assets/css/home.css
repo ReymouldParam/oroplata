@@ -135,6 +135,14 @@
       text-align: center;
   }
 
+  @media screen and (max-width: 768px) {
+      .choose-title {
+          font-size: 24px;
+          margin-top: 20px;
+      }
+
+  }
+
   /* Outer box */
   .choose-box {
       position: relative;
