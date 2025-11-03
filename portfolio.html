@@ -33,11 +33,12 @@
 
             <!-- Navigation -->
             <nav class="main-nav" role="navigation" aria-label="Primary">
-                <a href="./services.html" class="active">Services</a>
+                <a href="./services.html">Services</a>
                 <a href="./portfolio.html">Portfolio</a>
                 <a href="./about.html">About Us</a>
                 <a href="./contact.html">Contact</a>
             </nav>
+
 
             <!-- Phone -->
             <div class="header-contact">
@@ -160,6 +161,7 @@
     <script src="assets/JS-animation/home-page.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
     <script>
         $(document).ready(function () {
             // Project data
@@ -235,7 +237,9 @@
             }, 5000);
         });
     </script>
+    <script> $(function () { const $banner = $('.banner'); const $items = $banner.find('.banner-item'); $items.find('h2').on('mouseenter', function (e) { if ($banner.hasClass('has-active')) return; const $thisItem = $(this).closest('.banner-item'); $items.removeClass('active'); $thisItem.addClass('active'); $banner.addClass('has-active'); }); $items.find('h2').on('click', function (e) { e.stopPropagation(); const $thisItem = $(this).closest('.banner-item'); if ($thisItem.hasClass('active')) return; $items.removeClass('active'); $thisItem.addClass('active'); $banner.addClass('has-active'); }); $banner.on('mouseleave', function () { if ($banner.hasClass('has-active')) return; $items.removeClass('active'); $banner.removeClass('has-active'); }); $items.find('h2').attr('tabindex', 0).on('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { $(this).trigger('click'); e.preventDefault(); } else if (e.key === 'Escape') { $items.removeClass('active'); $banner.removeClass('has-active'); } }); }); </script>
     <script src="assets/JS-animation/email.js" defer></script>
+    <script src="assets/JS-animation/header.js"></script>
 </body>
 
 </html>
