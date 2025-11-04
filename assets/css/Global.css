@@ -427,7 +427,8 @@ body {
 /* simple text */
 .contact-text {
     color: #fff;
-    font-size: 15px;
+    font-size: 12px;
+    text-align: left;
 }
 
 /* social icons row */
