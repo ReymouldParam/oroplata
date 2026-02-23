@@ -424,6 +424,23 @@
   .why-box p {
       font-size: 13px;
       color: #D9BC72;
+
+  }
+
+  .exp-section {
+      background: fixed;
+      background-color: #000000;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 230px;
+      height: 100px;
+
+
+  }
+
+  .exp-section span {
+    color: white;
   }
 
 
@@ -577,7 +594,7 @@
 
   .explore-text {
       color: #ccc;
-      font-size: 14px;
+      font-size: 17px;
       margin-bottom: 5px;
   }
 
@@ -619,13 +636,6 @@
 
   .howwework-text {
       flex: 1;
-  }
-
-  .stage-text {
-      font-size: 18px;
-      font-weight: 700;
-      line-height: 1.5;
-      margin-bottom: 20px;
   }
 
   .stage-subtext {

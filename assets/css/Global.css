@@ -45,7 +45,7 @@ body {
     height: 70px;
     display: flex;
     align-items: center;
-    background: #111;
+    /* background: #111; */
     z-index: 1000;
     opacity: 0.9;
 }
@@ -62,20 +62,25 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    color: rgb(252, 250, 250);
 }
 
 /* Nav Links */
 .main-nav {
     display: flex;
     gap: 40px;
+    color: white;
+    background: rgba(20, 20, 20, 0.45);
+    padding: 20px;
+    border-radius: 18px;
 }
 
 .main-nav a {
     text-decoration: none;
     color: #fff;
     font-weight: 500;
-    font-size: 14px;
-    letter-spacing: 0.5px;
+    font-size: 16px;
+    letter-spacing: 0.7px;
     transition: color 0.3s;
 }
 
@@ -97,6 +102,8 @@ body {
 .header-contact i {
     font-size: 14px;
 }
+
+.mai
 
 /* Mobile menu toggle */
 .nav-toggle {
