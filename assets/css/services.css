@@ -88,12 +88,13 @@
     justify-content: center;
     transform: translateX(-20px);
     border-left: none;
+    padding-top: 34px;
 }
 
 .service-left h3 {
     color: #fff;
     font-size: 22px;
-    font-weight: 700;
+    font-weight: 400;
     line-height: 1.4;
     margin-bottom: 10px;
     text-transform: uppercase;

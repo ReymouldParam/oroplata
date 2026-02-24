@@ -33,7 +33,17 @@
     color: #ffffff;
 }
 
-.contact-info .info-item {
+.contact-info .info-num {
+    color: white;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    width: 290px;
+}
+
+/* .contact-info .info-item {
     background: #1a1a1a;
     border: 1px solid #333;
     border-radius: 6px;
@@ -41,6 +51,26 @@
     margin-bottom: 12px;
     font-size: 14px;
     color: #fff;
+} */
+
+.contact-info .info-email {
+    color: white;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    width: 400px;
+}
+
+.contact-info .info-address {
+    color: white;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    
 }
 
 /* SLIDER CONTAINER */
@@ -221,7 +251,7 @@ textarea {
 
 .faq-message {
     border-top: 1px solid #d4af37;
-    padding-top: 20px;
+    padding-top: 90px;
 }
 
 .faq-message h4 {
@@ -316,13 +346,20 @@ textarea {
     justify-content: space-between;
 }
 
-.form-left,
+.form-left {
+     flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
 .form-right {
     flex: 1;
     min-width: 300px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 0px;
 }
 
 .form-left label,
@@ -345,7 +382,7 @@ input {
 }
 
 textarea {
-    min-height: 120px;
+    min-height: 280px;
     resize: vertical;
 }
 
