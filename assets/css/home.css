@@ -347,6 +347,51 @@
       color: #dbc477;
   }
 
+  .choose-container {
+      position: relative;
+      width: 320px;
+      height: 320px;
+  }
+
+  /* rotating layer */
+  .orbit-layer {
+      position: absolute;
+      inset: 0;
+      transition: transform 0.8s ease-in-out;
+  }
+
+  /* keep dot positioned on edge */
+  .choose-dot {
+      position: absolute;
+      inset: 0;
+  }
+
+  .dot-img {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+  }
+
+  /* center text */
+  .circle-center-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+  }
+
+  .circle-center-text h3 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 500;
+  }
+
 
 
   /* Circle animation */

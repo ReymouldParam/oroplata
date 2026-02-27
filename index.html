@@ -119,15 +119,24 @@
                 <h4><span>200+</span><br>Completed Projects</h4>
 
             </div>
-            <!-- Right Content -->
             <div class="choose-right">
                 <div class="choose-container">
-                    <img src="assets/images/Ellipse 18.png" class="circle-img" alt="circle">
 
-                    <div class="choose-dot">
-                        <img src="assets/images/Ellipse 19.png" class="dot-img" alt="dot">
+                    <!-- ROTATING LAYER -->
+                    <div class="orbit-layer">
+                        <img src="assets/images/Ellipse 18.png" class="circle-img" alt="circle">
+
+                        <div class="choose-dot">
+                            <img src="assets/images/Ellipse 19.png" class="dot-img" alt="dot">
+                        </div>
                     </div>
-                    <!-- <div class="dot"></div> -->
+
+                    <!-- CENTER TEXT (static) -->
+                    <div class="circle-center-text">
+                        <h3>End-To-End</h3>
+                        <h3>Execution</h3>
+                    </div>
+
                 </div>
 
                 <!-- Fixed labels -->
@@ -479,10 +488,8 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
 
-            const orbit = document.querySelector(".choose-dot");
+            const orbit = document.querySelector(".orbit-layer");
 
-            // Order must follow physical clockwise order:
-            // Top → Right → Bottom → Left
             const sequence = [
                 "Experienced-Team",     // Top
                 "On-Time-Delivery",     // Right
@@ -492,9 +499,7 @@
 
             const stepAngle = 90;
             let index = 0;
-
-            // IMPORTANT: Start at 270deg because top = 270deg
-            let rotation = 270;
+            let rotation = 270; // start at top
 
             function activate(id) {
 
@@ -516,19 +521,16 @@
 
             function rotateStep() {
 
-                // move to next category first
                 index = (index + 1) % sequence.length;
-
                 rotation += stepAngle;
+
                 orbit.style.transform = `rotate(${rotation}deg)`;
 
-                // highlight slightly after movement
                 setTimeout(() => {
                     activate(sequence[index]);
                 }, 400);
             }
 
-            // initial state
             orbit.style.transform = `rotate(${rotation}deg)`;
             activate(sequence[index]);
 
