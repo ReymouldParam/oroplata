@@ -45,8 +45,8 @@
       font-weight: 600;
       line-height: 1.2;
       letter-spacing: 1px;
-      width: 80%;
-  }
+      width: 80%;      
+    }
 
   /* SCROLL LINE */
   .scroll-line-container {
@@ -484,6 +484,17 @@
   .exp-section span {
       color: white;
   }
+
+  /* video section  */
+  .about-video-player {
+  width: 100%;
+  max-width: 1200px;
+  border-radius: 18px;
+  display: block;
+  margin: auto;
+  height: 600px;
+  padding-top: 20px;
+}
 
 
   /* Contact us section */

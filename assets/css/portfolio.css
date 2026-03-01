@@ -211,7 +211,7 @@
     width: 100%;
     border-radius: 22px;
     object-fit: cover;
-    height: 500px;
+    height: 340px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
     transition: all 0.5s ease;
 }
@@ -226,8 +226,8 @@
 }
 
 .project-right h2 {
-    font-size: 2.8rem;
-    font-weight: 600;
+    font-size: 30px;
+    font-weight: 400;
     margin: 0;
     color: #fff;
     letter-spacing: 1px;
