@@ -70,7 +70,7 @@
     border-radius: 6px;
     margin-bottom: 12px;
     padding: 10px 12px;
-    
+
 }
 
 /* SLIDER CONTAINER */
@@ -347,7 +347,7 @@ textarea {
 }
 
 .form-left {
-     flex: 1;
+    flex: 1;
     min-width: 300px;
     display: flex;
     flex-direction: column;
@@ -382,7 +382,7 @@ input {
 }
 
 textarea {
-    min-height: 280px;
+    min-height: 160px;
     resize: vertical;
 }
 

@@ -13,7 +13,7 @@
   .banner-bg {
       position: absolute;
       inset: 0;
-      background: url("https://picsum.photos/1920/1080?blur=2") center center / cover no-repeat;
+      background: url("../images/aboutus-banner-img1.jpg") center center / cover no-repeat;
       transform: scale(1.15);
       filter: brightness(0.8);
       z-index: 0;
@@ -275,89 +275,26 @@
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 25px;
       margin-right: 30px;
-      perspective: 1000px;
   }
 
   .person-card {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.8s ease;
-      transform-style: preserve-3d;
-  }
-
-  .person-card img {
-      width: 100%;
-      height: 330px;
-      object-fit: cover;
-      display: block;
-      filter: brightness(0.9);
-      transition: 0.3s ease;
-  }
-
-
-
-  .person-card:hover img {
-      /* filter: brightness(1.5); */
-      transform: rotateY(180deg);
-  }
-
-  .overlay-text {
-      position: absolute;
-      bottom: 15px;
-      left: 15px;
-      color: #fff;
-      z-index: 2;
-  }
-
-  .overlay-text h4 {
-      font-size: 14px;
-      font-weight: 600;
-      margin: 0;
-  }
-
-  .overlay-text p {
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.85);
-      margin: 2px 0 0;
-  }
-
-  .overlay-back {
-      color: white;
-      margin-top: -80px;
-      z-index: 1000;
-  }
-
-  /* HOVER EFFECT  */
-  .person-card:hover img {
-      transform: rotateY(180deg);
-      z-index: 1;
-      opacity: 0;
-      /* background-color: black; */
-  }
-
-  .person-card:hover .overlay-text {
-      opacity: 0;
-      /* background: black; */
-  }
-
-  .person-card:hover .overlay-back {
-      transform: rotateY(0 frg);
       background: #504545;
-      align-items: center;
-      width: 100%;
-      height: 330px;
-      object-fit: cover;
+      color: #fff;
+      border-radius: 12px;
+      padding: 25px;
+      min-height: 250px;
       display: flex;
-      filter: blur(0.9);
-      /* transition: 0.3s ease; */
-      margin-top: -330px;
-      padding: 20px;
-
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
+  /* Optional simple hover effect */
+  .person-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+  }
 
   /* Our Team */
   .right-grid-team-alt {
