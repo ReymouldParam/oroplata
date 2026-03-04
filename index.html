@@ -124,8 +124,10 @@
 
                     </div>
                 </div>
-
-                <button class="choose-btn">Explore More →</button>
+                <div>
+                    <button style="background-color: transparent; border: none; height: 70px; width: 140px;"><a
+                            href="./portfolio"> <img src="assets/images/Explore-btn.png" alt=""> </a></button>
+                </div>
                 <h4><span>200+</span><br>Completed Projects</h4>
 
             </div>
@@ -179,12 +181,13 @@
                 <div class="service-info">
                     <div>
                         <h2>Construction and MEP Services </h2>
+
                         <div class="service-para">
                             <p>Complete end-to-end interior solutions, from concept and design to flawless execution and
                                 handover</p>
                         </div>
                     </div>
-                    <span class="service-arrow">&#8599;</span>
+                    <a href="./services"> <span class="service-arrow">&#8599;</span></a>
                 </div>
             </div>
 
@@ -201,7 +204,7 @@
                             </p>
                         </div>
                     </div>
-                    <span class="service-arrow">&#8599;</span>
+                    <a href="./services"> <span class="service-arrow">&#8599;</span></a>
                 </div>
             </div>
 
@@ -218,7 +221,7 @@
                             </p>
                         </div>
                     </div>
-                    <span class="service-arrow">&#8599;</span>
+                    <a href="./services"> <span class="service-arrow">&#8599;</span></a>
                 </div>
             </div>
 
@@ -236,13 +239,14 @@
                             </p>
                         </div>
                     </div>
-                    <span class="service-arrow">&#8599;</span>
+                    <a href="./services"> <span class="service-arrow">&#8599;</span></a>
                 </div>
             </div>
         </div>
 
-        <div class="services-explore">
-            <button>Explore More &#8594;</button>
+        <div>
+            <button style="background-color: transparent; border: none;"><a href="./services"> <img
+                        src="assets/images/Explore-btn.png" alt=""> </a></button>
         </div>
 
         <!-- Right Lights -->
@@ -324,7 +328,10 @@
                 <div class="bottom-center">
                     <h2>Implemented a streamlined interior and lighting layout tailored for a high-performance gym
                         environment. The design enhances spatial efficiency and user comfort</h2>
-                    <button class="explore-btn">Explore More</button>
+                    <div>
+                        <button style="background-color: transparent; border: none;"><a href="./portfolio"> <img
+                                    src="assets/images/Explore-btn.png" alt=""> </a></button>
+                    </div>
                 </div>
                 <div class="bottom-right grid-item">
                     <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&h=500&fit=crop"
@@ -375,8 +382,8 @@
                 </div>
             </div>
             <!-- Custom Arrows -->
-            <button type="button" class="slick-prev">←</button>
-            <button type="button" class="slick-next">→</button>
+            <button class="slick-prev"></button>
+            <button class="slick-next"></button>
         </div>
     </section>
 
@@ -396,7 +403,11 @@
                 </div>
                 <input type="email" name="email" placeholder="Enter Your Email Address">
                 <textarea name="message" placeholder="Leave Your Message"></textarea>
-                <button type="submit" class="btn-send">Send ↗</button>
+                <div>
+                    <button
+                        style="background-color: transparent; border: none; height: 70px; width: 140px; cursor: pointer;">
+                        <img src="assets/images/send-btn-arrow.png" alt=""></button>
+                </div>
             </form>
         </div>
 
@@ -430,7 +441,7 @@
 
             <div class="top-center">
                 <div class="location-item">
-                    <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <div><img src="./assets/images/location-svg.svg" alt=location /></div>
                     <div class="contact-text">OROPLATA PRIVATE LIMITED
                         H.No. 5-2-44, Hyderbasthi,Near Gujarati School, <br> Jee, Secunderabad, Hyderaba-500003
                         ,Telangana, India</div>
@@ -464,17 +475,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script>
         $(document).ready(function () {
+
             $('.gallery-carousel').slick({
-                centerMode: true,
-                centerPadding: '60px',
                 slidesToShow: 3,
                 slidesToScroll: 1,
-                dots: true,
+
+                centerMode: true,
+                centerPadding: '60px',
+
                 arrows: true,
+                prevArrow: $('.slick-prev'),
+                nextArrow: $('.slick-next'),
+
+                dots: true,
                 infinite: true,
+
                 autoplay: true,
                 autoplaySpeed: 3000,
                 speed: 500,
+
                 responsive: [
                     {
                         breakpoint: 1024,
@@ -499,6 +518,7 @@
                     }
                 ]
             });
+
         });
     </script>
     <script src="assets/JS-animation/home-page.js" defer></script>
