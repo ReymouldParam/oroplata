@@ -119,19 +119,20 @@
   /***************************************************** Section container */
   .choose-section {
       background: #000;
-      padding: 20px 20px;
+      /* padding: 20px 20px; */
       display: flex;
       flex-direction: column;
       align-items: center;
       color: #fff;
+
   }
 
   /* Title */
   .choose-title {
-      font-size: 32px;
-      font-weight: 600;
+      font-size: 3rem;
+      font-weight: normal;
       letter-spacing: 2px;
-      margin-bottom: 10px;
+      margin-top: 10px;
       text-align: center;
   }
 
@@ -168,7 +169,7 @@
   }
 
   .choose-left h3 {
-      font-size: 1.5rem;
+      font-size: 45px;
       margin-bottom: 12px;
       color: #fff;
   }
@@ -420,6 +421,7 @@
 
   .services-header h1 {
       font-size: 3rem;
+      font-weight: normal;
       margin-bottom: 16px;
       letter-spacing: 2px;
   }
@@ -458,10 +460,11 @@
 
   .service-card img {
       width: 100%;
-      height: 200px;
+      height: 300px;
       object-fit: cover;
       border-top-left-radius: 28px;
       border-top-right-radius: 28px;
+      border-radius: 5%;
   }
 
   .service-info {
@@ -473,7 +476,7 @@
       position: relative;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
       min-height: 92px;
   }
 
@@ -485,6 +488,7 @@
       letter-spacing: 0.02em;
       z-index: 2;
       transition: color 0.3s;
+      text-align: left;
   }
 
   .service-para {
@@ -626,7 +630,7 @@
       flex-direction: column;
       justify-content: center;
       z-index: 1;
-      padding-left: 20px;
+      margin-left: -30px;
   }
 
 
@@ -667,7 +671,7 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      padding: 36px 8vw 36px 0;
+      padding: 5px 82px;
       min-width: 340px;
       z-index: 1;
   }
@@ -794,16 +798,26 @@
 
   /* Header section - spans 2 columns */
   .header-section {
-      grid-column: 1 / 3;
+      grid-column: 1 / 4;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 2px;
-      background-color: #2a2a2a;
+      background-color: #000000;
+      padding: 10px;
   }
 
   .header-image {
       position: relative;
       min-height: 350px;
+      margin: 0;
+  }
+
+  .header-image img {
+      border-radius: 20px;
+      width: 100%;
+      height: 400px;
+      padding: 0;
+      object-fit: cover;
   }
 
   .header-text {
@@ -811,7 +825,7 @@
       padding: 0px 30px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
   }
 
   .header-text h1 {
@@ -851,12 +865,14 @@
       display: grid;
       grid-template-columns: 2fr 1fr;
       gap: 2px;
-      height: 300px;
+      height: 400px;
+      background-color: #000000;
   }
 
   /* Bottom row - image left, text center, image right */
   .bottom-left {
       min-height: 280px;
+      background-color: #000000;
   }
 
   .bottom-center {
@@ -904,6 +920,7 @@
 
   .bottom-right {
       min-height: 280px;
+      background-color: #000000;
   }
 
   /* Bottom row grid structure */
@@ -963,6 +980,9 @@
           filter 600ms cubic-bezier(.2, .9, .2, 1);
       will-change: transform, filter;
       backface-visibility: hidden;
+      border-radius: 20px;
+      padding: 4px;
+      height: 450px;
   }
 
   .grid-item:hover img,
@@ -1052,8 +1072,8 @@
   }
 
   .gallery-header h1 {
-      font-size: 72px;
-      font-weight: 300;
+      font-size: 3rem;
+      font-weight: normal;
       letter-spacing: 8px;
       /* margin-bottom: 30px; */
       color: #fff;
@@ -1084,7 +1104,7 @@
   }
 
   .slide-content {
-      background-color: #f5f5f5;
+      background-color: transparent;
       border-radius: 20px;
       overflow: hidden;
       height: 400px;
@@ -1100,7 +1120,8 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
+      /* display: block; */
+      border-radius: 40px;
   }
 
   /* Custom arrows */
@@ -1221,7 +1242,7 @@
 
   /* ===== Typography ===== */
   .contact-heading {
-      font-size: 4rem;
+      font-size: 3rem;
       font-weight: 300;
       letter-spacing: 2px;
       margin-bottom: 1rem;

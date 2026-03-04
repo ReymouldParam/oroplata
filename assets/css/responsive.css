@@ -924,7 +924,7 @@ button:focus-visible {
 
 @media (min-width: 1920px) and (max-width: 2559px) {
     .header-container {
-        max-width: 1400px;
+        max-width: 1750px;
     }
 
     .services-header .services-desc {
@@ -936,8 +936,8 @@ button:focus-visible {
     }
 
     .choose-box {
-        width: min(86%, 1300px);
-        padding: 70px 90px;
+        /* width: min(86%, 1300px); */
+        padding: 50px 60px;
     }
 
     .offer-right img {

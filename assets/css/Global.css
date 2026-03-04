@@ -240,7 +240,7 @@ body {
     resize: none;
     min-height: 50px;
 }
-
+/* 
 .send-btn {
     background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
     color: #1a1a1a;
@@ -271,7 +271,7 @@ body {
 
 .send-btn:hover::after {
     transform: translate(3px, -3px);
-}
+} */
 
 .contact-image {
     position: relative;
