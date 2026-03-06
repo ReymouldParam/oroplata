@@ -154,7 +154,7 @@
       background: #0e0d0f;
       border: 1px solid rgba(219, 196, 119, 0.6);
       border-radius: 20px;
-      padding: 60px 80px;
+      padding: 40px 80px;
       width: 90%;
       margin: 20px auto;
       box-shadow: 0 0 20px rgba(219, 196, 119, 0.2);
@@ -176,7 +176,7 @@
 
   .choose-left p {
       font-size: 0.95rem;
-      color: #ccc;
+      color: #d4af37;
       margin-bottom: 24px;
       line-height: 1.5;
   }
@@ -351,7 +351,7 @@
       opacity: 1;
       /* font-size: 16px; */
       font-weight: bold;
-      color: #dbc477;
+      color: #d4af37;
   }
 
   .choose-container {
@@ -433,7 +433,7 @@
   }
 
   .services-header .services-desc {
-      color: #dbc477;
+      color: #d4af37;
       font-size: 1.15rem;
       margin-bottom: 36px;
       font-weight: 400;
@@ -480,7 +480,7 @@
   }
 
   .service-info {
-      padding: 26px 22px 26px 22px;
+      padding: 20px 20px 20px 20px;
       background: #18171c;
       border-bottom-right-radius: 28px;
       border-bottom-left-radius: 28px;
@@ -489,18 +489,19 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      min-height: 92px;
+      min-height: 50px;
   }
 
   .service-info h2 {
       font-size: 28px;
       color: #fff;
       margin: 0 0 8px 0;
-      font-weight: 700;
+      font-weight: normal;
       letter-spacing: 0.02em;
       z-index: 2;
       transition: color 0.3s;
       text-align: left;
+      line-height: 38px;
   }
 
   .service-para {
@@ -533,10 +534,7 @@
       z-index: 2;
   }
 
-  .service-card:hover .service-info h2 {
-      color: #dbc477;
-      font-weight: 700;
-  }
+
 
   .service-card:hover .service-info .service-para {
       max-height: 120px;
@@ -567,13 +565,15 @@
 
   /* Heading becomes bold on hover */
   .service-card:hover .service-info h2 {
-      color: #dbc477;
-      font-weight: 900;
+      color: #d4af37;
+      font-size: 32px;
+      /* line-height: 5px; */
+      font-weight: 600;
   }
 
   /* Paragraph size reduces on hover */
   .service-card:hover .service-info .service-para p {
-      font-size: 15px;
+      font-size: 14px;
   }
 
   @media (max-width: 1200px) {
@@ -1248,7 +1248,7 @@
   /* ACTIVE DOT */
 
   .slick-dots li.slick-active button {
-      width: 32px !important;
+      width: 28px !important;
       height: 8px !important;
       border-radius: 20px !important;
       background: #d4af37 !important;

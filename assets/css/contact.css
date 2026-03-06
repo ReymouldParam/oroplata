@@ -242,7 +242,7 @@ textarea {
 
 .faq-left p {
     font-size: 13px;
-    color: #ccc;
+    color: #d4af37;
     margin-bottom: 25px;
 }
 
@@ -300,7 +300,7 @@ textarea {
 
 .faq-answer {
     display: none;
-    color: #aaa;
+    color: #d4af37;
     font-size: 13px;
     margin-top: 10px;
     line-height: 1.5;

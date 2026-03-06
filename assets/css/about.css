@@ -150,7 +150,7 @@
 
   .vm-box-vision p,
   .vm-box-mission p {
-      color: #ccc;
+      color: #d4af37;
       font-size: 18px;
       line-height: 1.6;
       margin-bottom: 0;
@@ -207,9 +207,9 @@
 
   .left-content {
       flex: 1;
-      padding: 4.5%;
+      padding: 2%;
       border-radius: 20px;
-      border: 3px solid #c6a356;
+      border: 1px solid #c6a356;
       border-left: none;
       transform: translateX(-45px);
   }
@@ -233,8 +233,8 @@
   }
 
   .left-content-team p {
-      color: #D9BC72;
-      font-size: 15px;
+      color: #d4af37;
+      font-size: 18px;
       margin-bottom: 25px;
       padding-left: 10%;
   }
@@ -248,19 +248,19 @@
   }
 
   .left-content p {
-      color: #D9BC72;
-      font-size: 15px;
+      color: #d4af37;
+      font-size: 18px;
       margin-bottom: 25px;
       padding-left: 10%;
   }
 
   .contact-btn {
-      background: #c6a356;
+      background: #d4af37;
       color: #0d0d0d;
       border: none;
       padding: 12px 28px;
-      font-size: 15px;
-      font-weight: 500;
+      font-size: 18px;
+      font-weight: 700;
       border-radius: 8px;
       cursor: pointer;
       transition: 0.3s;
@@ -339,6 +339,7 @@
       font-size: 18px;
       font-weight: normal;
       margin: 0;
+      color: #d4af37;
   }
 
   /* ---- Why Choose Section ---- */
@@ -378,8 +379,8 @@
   }
 
   .why-box p {
-      font-size: 13px;
-      color: #D9BC72;
+      font-size: 14px;
+      color: #d4af37;
 
   }
 
@@ -477,8 +478,8 @@
   }
 
   .content p {
-      color: #d0b868;
-      font-size: 1.1rem;
+      color: #d4af37;
+      font-size: 18PX;
       margin-top: 2rem;
   }
 

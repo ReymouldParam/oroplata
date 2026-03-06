@@ -55,22 +55,28 @@
             <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
         </div>
     </header>
-    <section class="banner" aria-label="Portfolio banner">
-        <div class="banner-item" style="background-image:url('assets/images/service-card1.jpg');">
-            <h2>CONSTRUCTION & MEP SERVICES</h2>
+
+
+
+
+    <!-- ===== BANNER ===== -->
+    <section class="banner" id="banner-section" aria-label="Portfolio banner">
+        <div class="banner-item" style="background-image:url('assets/images/service-card1.jpg');" data-index="0">
+            <h2>Construction &amp; MEP Services</h2>
         </div>
-        <div class="banner-item" style="background-image:url('assets/images/service-card2.jpg');">
-            <h2>DESIGN & CONSULTATION</h2>
+        <div class="banner-item" style="background-image:url('assets/images/service-card2.jpg');" data-index="1">
+            <h2>Design &amp; Consultation</h2>
         </div>
-        <div class="banner-item" style="background-image:url('assets/images/service-card3.jpg');">
-            <h2>SOLAR LIGHTING SYSTEMS</h2>
+        <div class="banner-item" style="background-image:url('assets/images/service-card3.jpg');" data-index="2">
+            <h2>Solar Lighting System</h2>
         </div>
-        <div class="banner-item" style="background-image:url('assets/images/service-card4.jpg');">
-            <h2>RESIDENTIAL & COMMERCIAL INTERIORS</h2>
+        <div class="banner-item" style="background-image:url('assets/images/service-card4.jpg');" data-index="3">
+            <h2>Residential &amp; Comercial Interiors</h2>
         </div>
     </section>
-    <!-- Project Section -->
-    <section class="project-showcase">
+
+    <!-- ===== PROJECT SHOWCASE ===== -->
+    <section class="project-showcase" id="project-showcase">
         <div class="project-pagination">
             <i class="fas fa-chevron-left prev"></i>
             <span class="page-num current">01</span>
@@ -82,10 +88,10 @@
 
         <div class="project-container fade show">
             <div class="project-left">
-                <img src="assets/images/MEP solutions/11.jpg" alt="Kama Apartment" class="main-img">
+                <img src="assets/images/MEP solutions/11.jpg" alt="" class="main-img">
             </div>
             <div class="project-right">
-                <h2 class="project-title">Construction & MEP Services</h2>
+                <h2 class="project-title">Construction &amp; MEP Services</h2>
                 <p class="project-desc">From Interiors To Electrical Planning<br>We Design, Execute, And Handover
                     Seamlessly.</p>
                 <div class="project-thumbs">
@@ -95,6 +101,7 @@
             </div>
         </div>
     </section>
+
 
     <!-- Contact Us -->
     <section class="work-together">
@@ -171,88 +178,99 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
     <script>
-        $(document).ready(function () {
-            // Project data
+        (function () {
+            /* ---------- project data ---------- */
             const projects = [
                 {
                     img: "assets/images/Restaurent.jpeg",
                     title: "Construction and MEP Services",
                     desc: "From Interiors To Electrical Planning<br>We Design, Execute, And Handover Seamlessly.",
-                    thumbs: [
-                        "assets/images/zingy.jpeg",
-                        "assets/images/zingy1.jpeg"
-                    ]
+                    thumbs: ["assets/images/zingy.jpeg", "assets/images/zingy1.jpeg"]
                 },
                 {
                     img: "assets/images/MEP solutions/11.jpg",
-                    title: "Design & Consultation",
+                    title: "Design &amp; Consultation",
                     desc: "Modern comfort blended with artistic elegance.<br>Designed with attention to every detail.",
-                    thumbs: [
-                        "assets/images/MEP solutions/9.jpg",
-                        "assets/images/MEP solutions/10.jpg"
-                    ]
+                    thumbs: ["assets/images/MEP solutions/9.jpg", "assets/images/MEP solutions/10.jpg"]
                 },
                 {
                     img: "assets/images/solar2.jpg",
                     title: "Solar Lighting Systems",
                     desc: "Elegant city living with timeless aesthetics.<br>Designed for modern sophistication.",
-                    thumbs: [
-                        "assets/images/solar.jpg",
-                        "assets/images/solar3.jpg"
-                    ]
+                    thumbs: ["assets/images/solar.jpg", "assets/images/solar3.jpg"]
                 },
                 {
                     img: "assets/images/MEP solutions/21.jpg",
-                    title: "Residential & Commercial Interiors",
+                    title: "Residential &amp; Commercial Interiors",
                     desc: "",
-                    thumbs: [
-                        "assets/images/MEP solutions/23.jpg",
-                        "assets/images/MEP solutions/18.jpg"
-                    ]
+                    thumbs: ["assets/images/MEP solutions/23.jpg", "assets/images/MEP solutions/18.jpg"]
                 }
             ];
 
             let currentIndex = 0;
             const total = projects.length;
 
-            function updateProject(index) {
-                const project = projects[index];
-                const $container = $(".project-container");
+            /* ---------- DOM refs ---------- */
+            const $container = document.querySelector(".project-container");
+            const $mainImg = document.querySelector(".main-img");
+            const $title = document.querySelector(".project-title");
+            const $desc = document.querySelector(".project-desc");
+            const $thumbs = document.querySelector(".project-thumbs");
+            const $pageNums = document.querySelectorAll(".project-pagination .page-num");
+            const $showcase = document.getElementById("project-showcase");
 
-                $container.removeClass("show");
+            /* ---------- update project display ---------- */
+            function updateProject(index) {
+                currentIndex = (index + total) % total;
+                const p = projects[currentIndex];
+
+                $container.classList.remove("show");
 
                 setTimeout(() => {
-                    $(".main-img").attr("src", project.img);
-                    $(".project-title").html(project.title);
-                    $(".project-desc").html(project.desc);
-                    $(".project-thumbs").html(`
-            <img src="${project.thumbs[0]}" alt="">
-            <img src="${project.thumbs[1]}" alt="">
-          `);
-                    $container.addClass("show");
+                    $mainImg.src = p.img;
+                    $title.innerHTML = p.title;
+                    $desc.innerHTML = p.desc;
+                    $thumbs.innerHTML = `<img src="${p.thumbs[0]}" alt=""><img src="${p.thumbs[1]}" alt="">`;
 
-                    // Update pagination
-                    $(".project-pagination .page-num").removeClass("current");
-                    $(".project-pagination .page-num").eq(index).addClass("current");
+                    $pageNums.forEach((el, i) => el.classList.toggle("current", i === currentIndex));
+                    $container.classList.add("show");
                 }, 400);
             }
 
-            $(".next").on("click", function () {
-                currentIndex = (currentIndex + 1) % total;
-                updateProject(currentIndex);
+            /* ---------- scroll to showcase ---------- */
+            function goToShowcase(index) {
+                updateProject(index);
+                $showcase.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+
+            /* ---------- banner: click on panel OR its h2 text ---------- */
+            document.querySelectorAll(".banner-item").forEach(item => {
+                item.addEventListener("click", function (e) {
+                    const idx = parseInt(this.dataset.index, 10);
+                    goToShowcase(idx);
+                });
             });
 
-            $(".prev").on("click", function () {
-                currentIndex = (currentIndex - 1 + total) % total;
-                updateProject(currentIndex);
+            document.querySelectorAll(".banner-item h2").forEach(h2 => {
+                h2.addEventListener("click", function (e) {
+                    e.stopPropagation();
+                    const idx = parseInt(this.closest(".banner-item").dataset.index, 10);
+                    goToShowcase(idx);
+                });
             });
 
-            // Auto cycle every 5 seconds
-            setInterval(() => {
-                currentIndex = (currentIndex + 1) % total;
-                updateProject(currentIndex);
-            }, 5000);
-        });
+            /* ---------- pagination arrows ---------- */
+            document.querySelector(".next").addEventListener("click", () => updateProject(currentIndex + 1));
+            document.querySelector(".prev").addEventListener("click", () => updateProject(currentIndex - 1));
+
+            /* ---------- pagination numbers ---------- */
+            $pageNums.forEach((el, i) => {
+                el.addEventListener("click", () => updateProject(i));
+            });
+
+            /* ---------- auto-cycle every 5 s ---------- */
+            setInterval(() => updateProject(currentIndex + 1), 5000);
+        })();
     </script>
     <script> $(function () { const $banner = $('.banner'); const $items = $banner.find('.banner-item'); $items.find('h2').on('mouseenter', function (e) { if ($banner.hasClass('has-active')) return; const $thisItem = $(this).closest('.banner-item'); $items.removeClass('active'); $thisItem.addClass('active'); $banner.addClass('has-active'); }); $items.find('h2').on('click', function (e) { e.stopPropagation(); const $thisItem = $(this).closest('.banner-item'); if ($thisItem.hasClass('active')) return; $items.removeClass('active'); $thisItem.addClass('active'); $banner.addClass('has-active'); }); $banner.on('mouseleave', function () { if ($banner.hasClass('has-active')) return; $items.removeClass('active'); $banner.removeClass('has-active'); }); $items.find('h2').attr('tabindex', 0).on('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { $(this).trigger('click'); e.preventDefault(); } else if (e.key === 'Escape') { $items.removeClass('active'); $banner.removeClass('has-active'); } }); }); </script>
     <script src="assets/JS-animation/email.js" defer></script>
