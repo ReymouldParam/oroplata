@@ -240,6 +240,7 @@ body {
     resize: none;
     min-height: 50px;
 }
+
 /* 
 .send-btn {
     background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
@@ -375,7 +376,7 @@ body {
 /* ---------- Top row (contacts / location / socials) ---------- */
 .footer-toprow {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     /* max-width: 1400px; */
     margin: 18px auto 10px;
@@ -388,23 +389,9 @@ body {
 /* left block */
 .top-left .top-contact {
     display: flex;
-    gap: 28px;
-    align-items: center;
-}
-
-/* center block */
-.top-center {
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* right block */
-.top-right {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
 }
 
 /* contact item */
@@ -414,8 +401,8 @@ body {
     gap: 12px;
     align-items: center;
     color: #fff;
-    font-size: 15px;
-    line-height: 1.2;
+    font-size: 18px;
+    /* line-height: 1.2; */
 }
 
 /* circular white icon border (same look as provided) */
@@ -423,18 +410,21 @@ body {
     width: 38px;
     height: 38px;
     border: 2px solid #fff;
+    padding: 10px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
+    font-size: 12px;
 }
 
 /* simple text */
 .contact-text {
     color: #fff;
-    font-size: 12px;
+    font-size: 14px;
+    font-weight: normal;
     text-align: left;
+    letter-spacing: 0.5px;
 }
 
 /* social icons row */

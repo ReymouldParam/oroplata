@@ -330,6 +330,11 @@
       transition: opacity 0.4s ease;
   }
 
+  .category-item h3 {
+      font-size: 3rem;
+      font-weight: normal;
+  }
+
   .category-item.active {
       opacity: 1;
       position: relative;
@@ -488,7 +493,7 @@
   }
 
   .service-info h2 {
-      font-size: 1.15rem;
+      font-size: 28px;
       color: #fff;
       margin: 0 0 8px 0;
       font-weight: 700;
@@ -508,7 +513,7 @@
 
   .service-para p {
       color: #fff;
-      font-size: 0.98rem;
+      font-size: 18px;
       margin: 0 0 18px 0;
   }
 
@@ -530,6 +535,7 @@
 
   .service-card:hover .service-info h2 {
       color: #dbc477;
+      font-weight: 700;
   }
 
   .service-card:hover .service-info .service-para {
@@ -557,6 +563,17 @@
 
   .services-explore button:hover {
       background: linear-gradient(90deg, #d6ad55 0%, #dbc477 100%);
+  }
+
+  /* Heading becomes bold on hover */
+  .service-card:hover .service-info h2 {
+      color: #dbc477;
+      font-weight: 900;
+  }
+
+  /* Paragraph size reduces on hover */
+  .service-card:hover .service-info .service-para p {
+      font-size: 15px;
   }
 
   @media (max-width: 1200px) {
@@ -642,18 +659,18 @@
 
 
   .offer-discount {
-      font-size: 3.2rem;
-      color: #dbc477;
-      font-weight: bold;
-      letter-spacing: 1px;
-      margin-bottom: 0.2em;
+      font-size: 3rem;
+      color: #ffffff;
+      font-weight: normal;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
       z-index: 2;
   }
 
   .offer-title {
       font-size: 3.2rem;
       color: #dbc477;
-      font-family: 'Georgia', serif;
+      /* font-family: 'Georgia', serif; */
       font-weight: 600;
       margin-bottom: 24px;
       margin-top: 4px;
@@ -663,10 +680,10 @@
   }
 
   .offer-desc {
-      font-size: 1.25rem;
-      color: #eedc89;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      font-weight: 400;
+      font-size: 18px !important;
+      color: #d4af37;
+      /* font-family: 'Segoe UI', Arial, sans-serif; */
+      font-weight: normal;
       line-height: 1.5;
       max-width: 630px;
       margin: 0;
@@ -812,6 +829,7 @@
       gap: 2px;
       background-color: #000000;
       padding: 10px;
+      align-items: center;
   }
 
   .header-image {
@@ -846,9 +864,9 @@
   }
 
   .header-text p {
-      font-size: 14px;
+      font-size: 18px;
       line-height: 1.8;
-      color: #D9BC72;
+      color: #d4af37;
       font-weight: 300;
   }
 
@@ -863,10 +881,10 @@
   }
 
   .middle-left h2 {
-      font-size: 16px;
-      font-weight: 300;
       line-height: 1.8;
       color: #d4af37;
+      font-size: 18px !important;
+      font-weight: 300;
       margin-bottom: 15px;
   }
 
@@ -1080,17 +1098,18 @@
       text-align: center;
       margin-bottom: 60px;
       padding: 0 20px;
+
   }
 
   .gallery-header h1 {
       font-size: 3rem;
       font-weight: normal;
-      letter-spacing: 8px;
+      letter-spacing: 2px;
       color: #fff;
   }
 
   .gallery-header p {
-      font-size: 16px;
+      font-size: 18px !important;
       line-height: 1.8;
       color: #d4af37;
       max-width: 900px;

@@ -41,10 +41,10 @@
       left: 50%;
       transform: translate(-50%, -50%);
       opacity: 0;
-      font-size: 4rem;
-      font-weight: 600;
-      line-height: 1.2;
-      letter-spacing: 1px;
+      font-size: 3rem;
+      font-weight: normal;
+      /* line-height: 1.2; */
+      letter-spacing: 2px;
       width: 80%;
   }
 
@@ -142,8 +142,8 @@
   /* Text content */
   .vm-box-vision h2,
   .vm-box-mission h2 {
-      font-size: 28px;
-      font-weight: 600;
+      font-size: 3rem;
+      font-weight: normal;
       margin-bottom: 20px;
       color: #fff;
   }
@@ -151,7 +151,7 @@
   .vm-box-vision p,
   .vm-box-mission p {
       color: #ccc;
-      font-size: 16px;
+      font-size: 18px;
       line-height: 1.6;
       margin-bottom: 0;
       max-width: 800px;
@@ -214,6 +214,7 @@
       transform: translateX(-45px);
   }
 
+
   .left-content-team {
       flex: 1;
       padding: 3%;
@@ -239,7 +240,8 @@
   }
 
   .left-content h3 {
-      font-size: 26px;
+      font-size: 3rem;
+      font-weight: normal;
       margin-bottom: 20px;
       color: #ffffff;
       padding-left: 10%;
@@ -328,13 +330,14 @@
   /* Typography */
   .card-front h4 {
       margin: 0 0 8px;
-      font-size: 16px;
-      font-weight: 600;
+      font-size: 24px;
+      font-weight: normal;
   }
 
   .card-front p,
   .card-back p {
-      font-size: 14px;
+      font-size: 18px;
+      font-weight: normal;
       margin: 0;
   }
 
@@ -344,7 +347,8 @@
   }
 
   .why-section h3 {
-      font-size: 32px;
+      font-size: 3rem;
+      font-weight: normal;
       margin-bottom: 40px;
       color: #ffffff;
   }
@@ -369,6 +373,7 @@
   .why-box h4 {
       font-size: 26px;
       margin-bottom: 8px;
+      font-weight: normal;
       color: #ffffff;
   }
 
@@ -442,8 +447,8 @@
   }
 
   h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
+      font-size: 3rem;
+      font-weight: normal;
       margin-bottom: 2rem;
       color: #fff;
   }

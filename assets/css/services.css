@@ -103,7 +103,7 @@
 
 .service-left p {
     color: #dcdcdc;
-    font-size: 15px;
+    font-size: 16px;
     margin-bottom: 28px;
     padding-left: 15px;
 }
@@ -241,16 +241,16 @@
 }
 
 .section-title {
-    font-size: 35px;
-    font-weight: 350;
-    letter-spacing: 0.5px;
+    font-size: 3rem;
+    font-weight: normal;
+    letter-spacing: 2px;
     color: #fff;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .section-subtitle {
     color: #ccc;
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 40px;
 }
 
@@ -289,9 +289,7 @@
 }
 
 .stage-text {
-      font-size: 18px;
-      font-weight: 340;
-      line-height: 1.5;
-      margin-bottom: 40px;
-      padding-top: 80px;
-  }
+    color: #ccc;
+    font-size: 18px;
+    /* margin-bottom: 20px; */
+}
