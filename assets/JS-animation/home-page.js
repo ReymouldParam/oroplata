@@ -1,61 +1,61 @@
-// Banner zoom effect with sticky pin until fully zoomed
-(function ($) {
-    var $win = $(window);
-    var $bannerWrapper = $('.banner-wrapper');
-    var $banner = $('.banner');
-    var $img = $('.banner-img');
-    var $header = $('.site-header');
+// Banner section 
+(function () {
+  gsap.registerPlugin(ScrollTrigger);
 
-    var START_SCALE = 0.4;
-    var END_SCALE = 1.0;
+  var $banner = document.querySelector('.banner-wrapper');
+  var $img = document.querySelector('.banner-img');
+  var $header = document.querySelector('.site-header');
 
-    var latestScroll = 0;
-    var ticking = false;
+  var START_SCALE = 0.4;
+  var END_SCALE = 1.0;
+  var OVERSHOOT_SCALE = 1.05; // subtle zoom-out flourish after the zoom-in
 
-    function easeOutCubic(t) {
-        return 1 - Math.pow(1 - t, 3);
-    }
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    function update() {
-        var scrollTop = latestScroll;
+  // Keep the centering transform intact — GSAP composes xPercent/yPercent + scale itself
+  gsap.set($img, { xPercent: -50, yPercent: -50, scale: START_SCALE, transformOrigin: '50% 50%' });
 
-        var wrapperTop = $bannerWrapper.offset().top;
-        var bannerHeight = $banner.outerHeight();
-        var totalScroll = bannerHeight * 3; // 3× viewport height
+  if (prefersReducedMotion) {
+    gsap.set($img, { scale: END_SCALE });
+  } else {
+    var tl = gsap.timeline({ paused: true });
 
-        var progress = (scrollTop - wrapperTop) / totalScroll;
-        progress = Math.min(Math.max(progress, 0), 1);
+    tl.to($img, {
+      scale: OVERSHOOT_SCALE,
+      duration: 2.3,
+      ease: 'power3.out'
+    }).to($img, {
+      scale: END_SCALE,
+      duration: 0.9,
+      ease: 'power2.inOut'
+    }, '-=0.2');
 
-        var eased = easeOutCubic(progress);
-        var scale = START_SCALE + (END_SCALE - START_SCALE) * eased;
-
-        $img.css('transform', 'translate(-50%, -50%) scale(' + scale + ')');
-
-        if (scrollTop > 20) {
-            $header.addClass('scrolled');
-        } else {
-            $header.removeClass('scrolled');
-        }
-
-        ticking = false;
-    }
-
-    $win.on('scroll', function () {
-        latestScroll = $win.scrollTop();
-        if (!ticking) {
-            requestAnimationFrame(update);
-            ticking = true;
-        }
+    ScrollTrigger.create({
+      trigger: $banner,
+      start: 'top 90%',   // fires as soon as the banner is about to enter view
+      once: true,          // never replays
+      onEnter: function () {
+        tl.play();
+      }
     });
+  }
 
-    $(function () {
-        latestScroll = $win.scrollTop();
-        update();
-    });
-})(jQuery);
+  // Header "scrolled" state — independent of the banner animation, still scroll-driven
+  ScrollTrigger.create({
+    start: 'top -20',
+    end: 99999,
+    onUpdate: function (self) {
+      $header.classList.toggle('scrolled', self.scroll() > 20);
+    }
+  });
+
+  // Make sure ScrollTrigger checks current scroll position immediately,
+  // so an already-in-view banner fires on load without needing a scroll event.
+  ScrollTrigger.refresh();
+})();
 
 //  Projects section animation on scroll
-(function() {
+(function () {
   // selectors we will animate (no HTML changes required)
   const selectors = [
     '.header-image',

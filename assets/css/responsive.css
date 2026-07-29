@@ -1,8 +1,3 @@
-/* ============================================================
-   COMPREHENSIVE RESPONSIVE STYLES FOR OROPLATA WEBSITE
-   Covers: Mobile, HD (1366px), Full HD (1920px), Mac devices
-   ============================================================ */
-
 /* ==================== BASE RESPONSIVE RULES ==================== */
 
 /* Fluid media */
@@ -15,6 +10,7 @@ video {
 .banner img,
 .banner video {
     max-width: none;
+    height: 120px;
 }
 
 section,

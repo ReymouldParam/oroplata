@@ -445,10 +445,13 @@
 
   .services-cards {
       display: flex;
-      justify-content: center;
-      gap: 28px;
+      justify-content: space-around;
+      gap: 20px;
       margin-bottom: 44px;
-      flex-wrap: wrap;
+      /* flex-wrap: wrap; */
+      width: 90%;
+      margin: auto;
+      margin-bottom: 35px;
   }
 
   .service-card {

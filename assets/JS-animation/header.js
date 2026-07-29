@@ -1,15 +1,24 @@
+$(function () {
+    let current = window.location.pathname;
 
-$(document).ready(function () {
-    // Get the current page filename (e.g. "services.html")
-    var currentPage = window.location.pathname.split("/").pop();
+    // Normalize the current path
+    current = current.replace(/index\.html$/, "");
+    current = current.replace(/\.html$/, "");
+    current = current.replace(/\/$/, "");
 
-    // Loop through each nav link
-    $('.main-nav a').each(function () {
-        var linkPage = $(this).attr('href').split("/").pop();
+    if (current === "") current = "/";
 
-        // If the href matches the current page, add the "active" class
-        if (linkPage === currentPage || (currentPage === "" && linkPage === "index.html")) {
-            $(this).addClass('active');
+    $(".main-nav a").each(function () {
+        let href = new URL($(this).attr("href"), window.location.origin).pathname;
+
+        href = href.replace(/index\.html$/, "");
+        href = href.replace(/\.html$/, "");
+        href = href.replace(/\/$/, "");
+
+        if (href === "") href = "/";
+
+        if (current === href) {
+            $(this).addClass("active");
         }
     });
 });

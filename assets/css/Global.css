@@ -76,19 +76,32 @@ body {
 }
 
 .main-nav a {
-    text-decoration: none;
+    position: relative;
     color: #fff;
-    font-weight: 500;
-    font-size: 16px;
-    letter-spacing: 0.7px;
-    transition: color 0.3s;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-.main-nav a:hover {
-    color: #f5d142;
-    /* gold hover like logo */
+.main-nav a:hover,
+.main-nav a.active {
+    color: #b8860b;
 }
 
+.main-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: #b8860b;
+    transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+    width: 100%;
+}
 /* Contact (phone) */
 .header-contact {
     display: flex;
