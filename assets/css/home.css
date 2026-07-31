@@ -116,6 +116,336 @@
       color: #fff;
   }
 
+
+  /* ******************************** ABOUT US  */
+
+  .about-section {
+      width: 90%;
+      margin: auto;
+      background-color: #000;
+      border: 1.5px solid #ffffff;
+      border-radius: 36px;
+      box-shadow:
+          0 0 0 1px rgba(255, 255, 255, 0.06),
+          0 0 40px 6px rgba(255, 255, 255, 0.35),
+          0 30px 80px rgba(0, 0, 0, 0.55);
+      margin-top: 2%;
+      margin-bottom: 2%;
+  }
+
+  .about-container {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      background: #C0B4A5;
+      border-radius: 36px;
+      overflow: hidden;
+      /* aspect-ratio: 3.4/1; */
+      min-height: 340px;
+      opacity: 0;
+      transform: translateY(50px);
+  }
+
+  /* ---------- LEFT SIDE ---------- */
+  .about-left {
+      flex: 1 1 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 36px 56px;
+  }
+
+  .about-left h2 {
+      font-size: clamp(28px, 3.6vw, 44px);
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      color: #181512;
+      line-height: 1;
+      margin-bottom: 16px;
+      overflow: hidden;
+  }
+
+  .about-left h2 span {
+      display: inline-block;
+      transform: translateY(110%);
+  }
+
+  .about-left p {
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: #1D1D1B;
+      max-width: 440px;
+      margin-bottom: 22px;
+      opacity: 0;
+  }
+
+  .explore-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      padding: 12px 24px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: #231a08;
+      background: linear-gradient(135deg, #fdeaa8, #e9c25c 55%, #b9822a);
+      box-shadow: 0 8px 20px rgba(180, 130, 30, 0.35);
+      transition: box-shadow .35s ease;
+      opacity: 0;
+  }
+
+  .explore-btn svg {
+      width: 14px;
+      height: 14px;
+      transition: transform .35s ease;
+  }
+
+  /* ---------- RIGHT SIDE : IMAGE CONTAINER ---------- */
+  .about-right {
+      position: relative;
+      /* flex: 1 1 46%; */
+      margin: 10px;
+      border-radius: 28px;
+      overflow: hidden;
+      background: #1c130c;
+  }
+
+  .about-image {
+      display: block;
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      object-position: center 25%;
+      filter: brightness(0.95) saturate(1.05) contrast(1.02);
+  }
+
+
+  /* ---- Full HD & large desktop monitors (1920x1080 and up) ---- */
+  @media (min-width:1600px) {
+      .about-section {
+          max-width: 1500px;
+          margin: 60px auto;
+      }
+
+      .about-container {
+          /* min-height: 420px; */
+      }
+
+      .about-left {
+          padding: 48px 72px;
+      }
+
+      .about-left h2 {
+          font-size: clamp(40px, 3vw, 54px);
+          margin-bottom: 22px;
+      }
+
+      .about-left p {
+          font-size: 16.5px;
+          max-width: 500px;
+          margin-bottom: 30px;
+      }
+
+      .explore-btn {
+          padding: 15px 30px;
+          font-size: 15px;
+      }
+
+      .explore-btn svg {
+          width: 16px;
+          height: 16px;
+      }
+  }
+
+  /* ---- Smaller HD laptops (1024–1279px, e.g. 1366x768 at 90% zoom, budget HD screens) ---- */
+  @media (max-width:1279px) {
+      .about-section {
+          width: 90%;
+      }
+
+      .about-container {
+          aspect-ratio: 3.1/1;
+          min-height: 300px;
+      }
+
+      .about-left {
+          padding: 30px 42px;
+      }
+
+      .about-left h2 {
+          font-size: clamp(26px, 3.6vw, 36px);
+          margin-bottom: 14px;
+      }
+
+      .about-left p {
+          font-size: 14px;
+          margin-bottom: 18px;
+      }
+
+      .explore-btn {
+          padding: 11px 22px;
+          font-size: 13px;
+      }
+  }
+
+  /* ---- Tablets, landscape & portrait (768–1023px) ---- */
+  @media (max-width:1023px) {
+      .about-section {
+          width: 92%;
+          margin: 30px auto;
+      }
+
+      .about-container {
+          aspect-ratio: 2.4/1;
+          min-height: 280px;
+          border-radius: 30px;
+      }
+
+      .about-left {
+          padding: 26px 34px;
+      }
+
+      .about-left h2 {
+          font-size: clamp(24px, 4.2vw, 32px);
+          letter-spacing: 1px;
+          margin-bottom: 12px;
+      }
+
+      .about-left p {
+          font-size: 13.5px;
+          line-height: 1.55;
+          margin-bottom: 16px;
+          max-width: 100%;
+      }
+
+      .explore-btn {
+          padding: 10px 20px;
+          font-size: 12.5px;
+      }
+
+      .about-right {
+          border-radius: 22px;
+      }
+  }
+
+  /* ---- Mobile: switch to stacked layout (≤767px) ---- */
+  @media (max-width:767px) {
+      body {
+          padding: 30px 12px;
+      }
+
+      .about-section {
+          width: 94%;
+          margin: 20px auto;
+          border-radius: 28px;
+      }
+
+      .about-container {
+          flex-direction: column;
+          aspect-ratio: auto;
+          height: auto;
+          min-height: 0;
+          border-radius: 28px;
+      }
+
+      .about-left {
+          padding: 32px 26px 24px;
+          text-align: left;
+      }
+
+      .about-left h2 {
+          font-size: clamp(28px, 8vw, 38px);
+          margin-bottom: 14px;
+      }
+
+      .about-left p {
+          font-size: 14px;
+          max-width: 100%;
+          margin-bottom: 20px;
+      }
+
+      .explore-btn {
+          padding: 13px 24px;
+          font-size: 13.5px;
+      }
+
+      .about-right {
+          margin: 0 14px 14px 14px;
+          height: 240px;
+          border-radius: 22px;
+      }
+
+      .about-image {
+          object-position: center 30%;
+      }
+  }
+
+  /* ---- Small mobile phones (≤480px) ---- */
+  @media (max-width:480px) {
+      .about-section {
+          width: 94%;
+          margin: 16px auto;
+          border-radius: 22px;
+          border-width: 1px;
+      }
+
+      .about-container {
+          border-radius: 22px;
+      }
+
+      .about-left {
+          padding: 28px 20px 20px;
+      }
+
+      .about-left h2 {
+          font-size: 30px;
+          letter-spacing: 0.5px;
+          margin-bottom: 12px;
+      }
+
+      .about-left p {
+          font-size: 13px;
+          line-height: 1.5;
+          margin-bottom: 18px;
+      }
+
+      .explore-btn {
+          width: 100%;
+          justify-content: center;
+          padding: 12px 20px;
+          font-size: 13px;
+      }
+
+      .about-right {
+          margin: 0 10px 10px 10px;
+          height: 200px;
+          border-radius: 18px;
+      }
+  }
+
+  /* ---- Very small phones (≤360px) ---- */
+  @media (max-width:360px) {
+      .about-left {
+          padding: 24px 16px 18px;
+      }
+
+      .about-left h2 {
+          font-size: 26px;
+      }
+
+      .about-left p {
+          font-size: 12.5px;
+      }
+
+      .about-right {
+          height: 170px;
+      }
+  }
+
   /***************************************************** Section container */
   .choose-section {
       background: #000;

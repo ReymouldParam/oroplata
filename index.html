@@ -59,10 +59,10 @@
             <div class="banner-left">
                 <h1 class="headline">
 
-                    COMPLETE Mechanical, Electrical Planning <br> SOLUTIONS
+                    COMPLETE MECHANICAL, ELECTRICAL PLANING <br> SOLUTIONS
                 </h1>
                 <p class="subhead">
-                    From Mechanical, Electrical Planning to Interiors
+                    FROM MECHANICAL, ELECTRICAL PLANING TO INTERIORS
 
                 </p>
             </div>
@@ -78,6 +78,27 @@
                     CRAFTED WITH SMART <br> ELECTRICAL PRECISION
                 </h1>
             </div>
+        </div>
+    </section>
+    <!-- ABOUT US  -->
+    <section class="about-section">
+        <div class="about-container" id="aboutContainer">
+
+            <div class="about-left">
+                <h2><span>ABOUT US</span></h2>
+                <p>Our Designs Seamlessly Merge Artistry With Practicality. An Impressive Façade That Speaks Volumes,
+                    Our Designs Seamlessly Merge Artistry With Practicality.</p>
+                <div>
+                    <button style="background-color: transparent; border: none; height: 70px; width: 140px;"><a
+                            href="./about"> <img src="assets/images/Explore-btn.png" alt=""> </a></button>
+                </div>
+            </div>
+
+            <div class="about-right">
+                <img class="about-image" src="assets/images/about-us-img.png"
+                    alt="Backlit fluted arch interior with sofa">
+            </div>
+
         </div>
     </section>
     <!-- Services Section -->
@@ -164,8 +185,8 @@
         </div>
 
         <div>
-            <button style="background-color: transparent; border: none;"><a href="./services"> <img
-                        src="assets/images/Explore-btn.png" alt=""> </a></button>
+            <button style="background-color: transparent; border: none; height: 70px; width: 140px;"><a
+                    href="./services"> <img src="assets/images/Explore-btn.png" alt=""> </a></button>
         </div>
 
         <!-- Right Lights -->
@@ -578,6 +599,52 @@
 
             setInterval(rotateStep, 2500);
 
+        });
+    </script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#aboutContainer",
+                start: "top 85%",
+                once: true
+            }
+        });
+
+        tl.to("#aboutContainer", {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power3.out"
+        })
+            .to(".about-left h2 span", {
+                y: 0,
+                duration: 0.9,
+                ease: "power4.out"
+            }, "-=0.6")
+            .to(".about-left p", {
+                opacity: 1,
+                duration: 0.7,
+                ease: "power2.out"
+            }, "-=0.5")
+            .to("#exploreBtn", {
+                opacity: 1,
+                duration: 0.6,
+                ease: "power2.out"
+            }, "-=0.4")
+            .fromTo(".about-image",
+                { scale: 1.08, opacity: 0 },
+                { scale: 1, opacity: 1, duration: 1.1, ease: "power3.out" },
+                "-=0.9");
+
+        /* button micro-interaction */
+        $("#exploreBtn").on("mouseenter", function () {
+            gsap.to(this, { boxShadow: "0 10px 28px rgba(180,130,30,0.55)", scale: 1.04, duration: 0.3 });
+            gsap.to($(this).find("svg"), { x: 3, y: -3, duration: 0.3 });
+        }).on("mouseleave", function () {
+            gsap.to(this, { boxShadow: "0 8px 20px rgba(180,130,30,0.35)", scale: 1, duration: 0.3 });
+            gsap.to($(this).find("svg"), { x: 0, y: 0, duration: 0.3 });
         });
     </script>
 </body>

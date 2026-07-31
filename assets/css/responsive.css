@@ -32,7 +32,7 @@ button:focus-visible {
 
 .banner-left .headline,
 .banner-right .headline {
-    font-size: clamp(1.75rem, 3.2vw + 0.5rem, 3rem);
+    font-size: 38px;
     line-height: 1.15;
 }
 
@@ -80,73 +80,7 @@ button:focus-visible {
 
 /* ==================== HEADER & NAVIGATION ==================== */
 
-/* Tablet and below */
-@media (max-width: 1024px) {
-    .site-header {
-        height: auto;
-        padding: 10px 0;
-    }
-
-    .header-container.header-inner {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        grid-template-areas:
-            "logo phone"
-            "nav  nav";
-        row-gap: 10px;
-        align-items: center;
-    }
-
-    .logo-container {
-        grid-area: logo;
-    }
-
-    .header-contact {
-        grid-area: phone;
-        justify-self: end;
-        font-size: 13px;
-        gap: 6px;
-    }
-
-    .main-nav {
-        grid-area: nav;
-        display: flex !important;
-        flex-wrap: wrap;
-        gap: 16px;
-        padding-top: 6px;
-        border-top: 1px solid rgba(255, 255, 255, 0.12);
-    }
-
-    .main-nav a {
-        font-size: 14px;
-        padding: 6px 0;
-    }
-
-    .nav-toggle {
-        display: none !important;
-    }
-}
-
-/* Mobile phones */
-@media (max-width: 480px) {
-    .logo-container img {
-        height: 25px;
-    }
-
-    .header-contact span {
-        font-size: 12px;
-    }
-
-    .main-nav {
-        gap: 12px;
-    }
-
-    .main-nav a {
-        font-size: 13px;
-    }
-}
-
-/* ==================== HOME PAGE - BANNER ==================== */
+/* ==================== HOME PAGE - BANNER : MOBILE RESPONSIVE ==================== */
 
 @media (max-width: 768px) {
 
@@ -163,17 +97,46 @@ button:focus-visible {
     }
 
     .banner-wrapper {
-        padding-top: 10%;
+        height: 220vh;
+        /* shorter pinned-scroll distance feels less sluggish on mobile */
+    }
+
+    .banner {
+        height: 100vh;
+    }
+
+    .banner-img {
+        min-width: 160%;
+        min-height: 160%;
+        /* extra overscan so the subject stays framed on portrait screens */
+    }
+
+    .banner-left,
+    .banner-right {
+        left: 6%;
+        right: 6%;
+        width: 88%;
     }
 
     .banner-left {
-        top: 18%;
-        left: 6%;
+        top: 15%;
     }
 
     .banner-right {
-        bottom: 18%;
-        right: 6%;
+        bottom: 15%;
+        text-align: right;
+    }
+
+    .banner-left .headline,
+    .banner-right .headline {
+        font-size: clamp(1.5rem, 6vw, 2.1rem) !important;
+        /* wins over the conflicting 3rem base rule */
+        line-height: 1.25;
+    }
+
+    .banner-left .subhead {
+        font-size: clamp(0.8rem, 3vw, 0.95rem);
+        margin-top: 12px;
     }
 
     .circle-cta {
@@ -181,26 +144,93 @@ button:focus-visible {
         height: 88px;
     }
 
-    .banner-wrapper {
-        position: relative;
-        height: 100vh;
+    .circle-cta i {
+        font-size: 26px;
     }
 }
 
 @media (max-width: 480px) {
-    .banner-left {
-        top: 16%;
+
+    .banner-wrapper {
+        height: 200vh;
+    }
+
+    .banner-img {
+        min-width: 190%;
+        min-height: 190%;
+    }
+
+    .banner-left,
+    .banner-right {
         left: 5%;
+        right: 5%;
+        width: 90%;
+    }
+
+    .banner-left {
+        top: 13%;
     }
 
     .banner-right {
-        bottom: 16%;
-        right: 5%;
+        bottom: 13%;
+    }
+
+    .banner-left .headline,
+    .banner-right .headline {
+        font-size: clamp(1.25rem, 7vw, 1.6rem) !important;
+        line-height: 1.2;
+    }
+
+    .banner-left .subhead {
+        font-size: 0.8rem;
+        margin-top: 10px;
     }
 
     .circle-cta {
         width: 78px;
         height: 78px;
+    }
+
+    .circle-cta i {
+        font-size: 20px;
+    }
+}
+
+/* Small phones */
+@media (max-width: 360px) {
+
+    .banner-left .headline,
+    .banner-right .headline {
+        font-size: 1.15rem !important;
+    }
+
+    .circle-cta {
+        width: 68px;
+        height: 68px;
+    }
+
+    .circle-cta i {
+        font-size: 18px;
+    }
+}
+
+/* Mobile landscape — short viewport height, keep text/circle from overlapping */
+@media (max-width: 900px) and (max-height: 500px) and (orientation: landscape) {
+    .banner-wrapper {
+        height: 160vh;
+    }
+
+    .banner-left {
+        top: 10%;
+    }
+
+    .banner-right {
+        bottom: 10%;
+    }
+
+    .circle-cta {
+        width: 60px;
+        height: 60px;
     }
 }
 
