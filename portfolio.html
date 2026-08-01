@@ -281,6 +281,8 @@
             let activeCategoryIndex = 0;
             let activeProjectIndex = 0;
             let sectionInView = false;
+            let autoRotateTimer = null;
+            const AUTO_ROTATE_DELAY = 3500;
 
             function pad(value) {
                 return String(value).padStart(2, '0');
@@ -343,53 +345,79 @@
                     .addClass('active');
             }
 
+            function startAutoRotate() {
+                clearInterval(autoRotateTimer);
+                autoRotateTimer = setInterval(() => {
+                    if (!sectionInView) return;
+                    const totalProjects = portfolioData[activeCategoryIndex].projects.length;
+                    const nextProjectIndex = (activeProjectIndex + 1) % totalProjects;
+                    renderCategoryState(activeCategoryIndex, nextProjectIndex);
+                }, AUTO_ROTATE_DELAY);
+            }
+
+            function stopAutoRotate() {
+                clearInterval(autoRotateTimer);
+            }
+
             renderCategoryState(0, 0);
+            startAutoRotate();
 
             $categories.on('click', '.project-cat-btn', function () {
                 const catIndex = Number($(this).attr('data-cat-index'));
                 renderCategoryState(catIndex, 0);
+                startAutoRotate();
             });
 
             $('.ps-arrow.next').on('click', function () {
                 const totalProjects = portfolioData[activeCategoryIndex].projects.length;
                 const nextProjectIndex = (activeProjectIndex + 1) % totalProjects;
                 renderCategoryState(activeCategoryIndex, nextProjectIndex);
+                startAutoRotate();
             });
 
             $('.ps-arrow.prev').on('click', function () {
                 const totalProjects = portfolioData[activeCategoryIndex].projects.length;
                 const prevProjectIndex = (activeProjectIndex - 1 + totalProjects) % totalProjects;
                 renderCategoryState(activeCategoryIndex, prevProjectIndex);
+                startAutoRotate();
             });
 
             $pageNums.on('click', '.page-num', function () {
                 const targetProjIndex = Number($(this).attr('data-proj-index'));
                 renderCategoryState(activeCategoryIndex, targetProjIndex);
+                startAutoRotate();
             });
 
             $thumbs.on('click', '.project-thumb', function () {
                 const targetProjIndex = Number($(this).attr('data-proj-index'));
                 renderCategoryState(activeCategoryIndex, targetProjIndex);
+                startAutoRotate();
             });
 
             if ('IntersectionObserver' in window) {
                 const observer = new IntersectionObserver(
                     entries => {
                         sectionInView = entries[0].isIntersecting;
+                        if (sectionInView) {
+                            startAutoRotate();
+                        } else {
+                            stopAutoRotate();
+                        }
                     },
                     { threshold: 0.3 }
                 );
                 observer.observe(document.getElementById('project-showcase'));
             } else {
                 sectionInView = true;
+                startAutoRotate();
             }
 
             $(document).on('keydown', function (event) {
                 if (!sectionInView) return;
                 if (event.key === 'ArrowRight') {
-                    $slider.slick('slickNext');
+                    $('.ps-arrow.next').trigger('click');
                 } else if (event.key === 'ArrowLeft') {
-                    $slider.slick('slickPrev');
+                    $('.ps-arrow.prev').trigger('click');
                 }
             });
         });
