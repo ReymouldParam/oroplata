@@ -16,11 +16,12 @@
     <link rel="stylesheet" href="assets/css/responsive.css" />
     <!-- Font Awsome  -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-    <!-- Jquery -->
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
 </head>
 
 <body>
@@ -34,7 +35,7 @@
 
             <!-- Navigation -->
             <nav class="main-nav" role="navigation" aria-label="Primary">
-               <a href="/">Home</a>
+                <a href="/">Home</a>
                 <a href="./services">Services</a>
                 <a href="./about">About Us</a>
                 <a href="./portfolio">Portfolio</a>
@@ -49,46 +50,44 @@
             <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
         </div>
     </header>
-    <!-- ===== BANNER ===== -->
-    <section class="banner" id="banner-section" aria-label="Portfolio banner">
-        <div class="banner-item" style="background-image:url('assets/images/service-card1.jpg');" data-index="0">
-            <h2>Construction &amp; MEP Services</h2>
-        </div>
-        <div class="banner-item" style="background-image:url('assets/images/service-card2.jpg');" data-index="1">
-            <h2>Design &amp; Consultation</h2>
-        </div>
-        <div class="banner-item" style="background-image:url('assets/images/service-card3.jpg');" data-index="2">
-            <h2>Solar Lighting System</h2>
-        </div>
-        <div class="banner-item" style="background-image:url('assets/images/service-card4.jpg');" data-index="3">
-            <h2>Residential &amp; Commercial Interiors</h2>
-        </div>
-    </section>
 
-    <!-- ===== PROJECT SHOWCASE ===== -->
     <section class="project-showcase" id="project-showcase">
-        <div class="project-pagination">
-            <i class="fas fa-chevron-left prev"></i>
-            <span class="page-num current">01</span>
-            <span class="page-num">02</span>
-            <span class="page-num">03</span>
-            <span class="page-num">04</span>
-            <i class="fas fa-chevron-right next"></i>
-        </div>
+        <div class="project-inner">
 
-        <div class="project-container fade show">
-            <div class="project-left">
-                <img src="assets/images/MEP solutions/11.jpg" alt="" class="main-img">
-            </div>
-            <div class="project-right">
-                <h2 class="project-title">Construction &amp; MEP Services</h2>
-                <p class="project-desc">From Interiors To Electrical Planning<br>We Design, Execute, And Handover
-                    Seamlessly.</p>
-                <div class="project-thumbs">
-                    <img src="assets/images/MEP solutions/9.jpg" alt="">
-                    <img src="assets/images/MEP solutions/10.jpg" alt="">
+            <!-- LEFT: category list (populated by JS) -->
+            <nav class="project-categories" aria-label="Project categories"></nav>
+            <div class="project-main">
+                <div class="project-head">
+                    <h2 class="project-title" id="ps-title"></h2>
+
+                    <div class="project-pagination">
+                        <!-- <div class="project-counter" aria-live="polite">
+                            <span class="counter-current" id="ps-counter-current">01</span>
+                            <span class="counter-divider">/</span>
+                            <span class="counter-total" id="ps-counter-total">04</span>
+                        </div> -->
+                        <button type="button" class="ps-arrow prev" aria-label="Previous image">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="page-nums"></div>
+                        <button type="button" class="ps-arrow next" aria-label="Next image">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="project-body">
+                    <div class="project-left">
+                        <div class="project-slider"></div>
+                    </div>
+
+                    <div class="project-right">
+                        <p class="project-desc" id="ps-desc"></p>
+                        <div class="project-thumbs" id="ps-thumbs"></div>
+                    </div>
                 </div>
             </div>
+
         </div>
     </section>
     <!-- Contact Us -->
@@ -160,108 +159,241 @@
             <p>© Copyright @ 2026. All Rights Reserved | Designed By Reymould</p>
         </div>
     </footer>
-    <script src="assets/JS-animation/home-page.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <!-- ============================================================
+     THIRD-PARTY SCRIPTS
+============================================================ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
     <script>
-        (function () {
-            /* ---------- project data ---------- */
-            const projects = [
+        $(function () {
+            'use strict';
+
+            const portfolioData = [
                 {
-                    img: "assets/images/Restaurent.jpeg",
-                    title: "Construction and MEP Services",
-                    desc: "From Interiors To Electrical Planning<br>We Design, Execute, And Handover Seamlessly.",
-                    thumbs: ["assets/images/zingy.jpeg", "assets/images/zingy1.jpeg"]
+                    name: 'Turnkey Interior Projects',
+                    projects: [
+                        {
+                            title: 'Construction &amp; MEP Services',
+                            desc: 'From Interiors To Electrical Planning<br>We Design, Execute, And Handover Seamlessly.',
+                            main: 'assets/images/Restaurent.jpeg',
+                            thumbs: ['assets/images/zingy.jpeg', 'assets/images/zingy1.jpeg']
+                        },
+                        {
+                            title: 'Skyline Residency',
+                            desc: 'Refined living spaces crafted for<br>comfort, function, and lasting style.',
+                            main: 'assets/images/MEP solutions/21.jpg',
+                            thumbs: ['assets/images/MEP solutions/23.jpg', 'assets/images/MEP solutions/18.jpg']
+                        },
+                        {
+                            title: 'Timmo Farmhouse',
+                            desc: 'A timeless residence shaped by soft light,<br>texture, and elegant spatial flow.',
+                            main: 'assets/images/MEP solutions/11.jpg',
+                            thumbs: ['assets/images/MEP solutions/9.jpg', 'assets/images/MEP solutions/10.jpg']
+                        }
+                    ]
                 },
                 {
-                    img: "assets/images/MEP solutions/11.jpg",
-                    title: "Design &amp; Consultation",
-                    desc: "Modern comfort blended with artistic elegance.<br>Designed with attention to every detail.",
-                    thumbs: ["assets/images/MEP solutions/9.jpg", "assets/images/MEP solutions/10.jpg"]
+                    name: 'Design &amp; Consultation',
+                    projects: [
+                        {
+                            title: 'Design &amp; Consultation',
+                            desc: 'Modern comfort blended with artistic elegance.<br>Designed with attention to every detail.',
+                            main: 'assets/images/MEP solutions/11.jpg',
+                            thumbs: ['assets/images/MEP solutions/9.jpg', 'assets/images/MEP solutions/10.jpg']
+                        },
+                        {
+                            title: 'Studio Concept Space',
+                            desc: 'Concept-driven planning that turns<br>ideas into liveable, functional layouts.',
+                            main: 'assets/images/Restaurent.jpeg',
+                            thumbs: ['assets/images/zingy.jpeg', 'assets/images/zingy1.jpeg']
+                        }
+                    ]
                 },
                 {
-                    img: "assets/images/solar2.jpg",
-                    title: "Solar Lighting Systems",
-                    desc: "Elegant city living with timeless aesthetics.<br>Designed for modern sophistication.",
-                    thumbs: ["assets/images/solar.jpg", "assets/images/solar3.jpg"]
+                    name: 'Residential Interiors',
+                    projects: [
+                        {
+                            title: 'Solar Lighting Systems',
+                            desc: 'Elegant city living with timeless aesthetics.<br>Designed for modern sophistication.',
+                            main: 'assets/images/solar2.jpg',
+                            thumbs: ['assets/images/solar.jpg', 'assets/images/solar3.jpg']
+                        },
+                        {
+                            title: 'Urban Family Residence',
+                            desc: 'A warm, contemporary home built<br>around natural light and open living.',
+                            main: 'assets/images/MEP solutions/21.jpg',
+                            thumbs: ['assets/images/MEP solutions/23.jpg', 'assets/images/MEP solutions/18.jpg']
+                        }
+                    ]
                 },
                 {
-                    img: "assets/images/MEP solutions/21.jpg",
-                    title: "Residential &amp; Commercial Interiors",
-                    desc: "A contemporary industrial facility built to blend performance with smart design.",
-                    thumbs: ["assets/images/MEP solutions/23.jpg", "assets/images/MEP solutions/18.jpg"]
+                    name: 'Commercial Interiors',
+                    projects: [
+                        {
+                            title: 'Residential &amp; Commercial Interiors',
+                            desc: 'A contemporary industrial facility built to<br>blend performance with smart design.',
+                            main: 'assets/images/MEP solutions/21.jpg',
+                            thumbs: ['assets/images/MEP solutions/23.jpg', 'assets/images/MEP solutions/18.jpg']
+                        },
+                        {
+                            title: 'Corporate Office Suite',
+                            desc: 'Efficient, elegant workspaces designed<br>to elevate everyday business.',
+                            main: 'assets/images/Restaurent.jpeg',
+                            thumbs: ['assets/images/zingy.jpeg', 'assets/images/zingy1.jpeg']
+                        }
+                    ]
                 }
             ];
 
-            let currentIndex = 0;
-            const total = projects.length;
+            const FALLBACK_IMG = 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(
+                '<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400">' +
+                '<rect width="100%" height="100%" fill="#232323"/>' +
+                '<text x="50%" y="50%" fill="#5c5c5c" font-family="sans-serif" font-size="18" text-anchor="middle" dy=".3em">Image</text>' +
+                '</svg>'
+            );
 
-            /* ---------- DOM refs ---------- */
-            const $container = document.querySelector(".project-container");
-            const $mainImg = document.querySelector(".main-img");
-            const $title = document.querySelector(".project-title");
-            const $desc = document.querySelector(".project-desc");
-            const $thumbs = document.querySelector(".project-thumbs");
-            const $pageNums = document.querySelectorAll(".project-pagination .page-num");
-            const $showcase = document.getElementById("project-showcase");
+            $('#project-showcase').on('error', 'img', function () {
+                if (this.src !== FALLBACK_IMG) {
+                    this.src = FALLBACK_IMG;
+                }
+            });
 
-            /* ---------- update project display ---------- */
-            function updateProject(index) {
-                currentIndex = (index + total) % total;
-                const p = projects[currentIndex];
+            const $categories = $('.project-categories');
+            const $slider = $('.project-slider');
+            const $title = $('#ps-title');
+            const $desc = $('#ps-desc');
+            const $pageNums = $('.page-nums');
+            const $thumbs = $('#ps-thumbs');
 
-                $container.classList.remove("show");
+            const categoryButtons = portfolioData.map((category, index) =>
+                $('<button>', {
+                    type: 'button',
+                    class: 'project-cat-btn',
+                    html: category.name,
+                    'data-cat-index': index
+                })
+            );
 
-                setTimeout(() => {
-                    $mainImg.src = p.img;
-                    $title.innerHTML = p.title;
-                    $desc.innerHTML = p.desc;
-                    $thumbs.innerHTML = `<img src="${p.thumbs[0]}" alt=""><img src="${p.thumbs[1]}" alt="">`;
+            $categories.append(categoryButtons);
 
-                    $pageNums.forEach((el, i) => el.classList.toggle("current", i === currentIndex));
-                    $container.classList.add("show");
-                }, 400);
+            let activeCategoryIndex = 0;
+            let activeProjectIndex = 0;
+            let sectionInView = false;
+
+            function pad(value) {
+                return String(value).padStart(2, '0');
             }
 
-            /* ---------- scroll to showcase ---------- */
-            function goToShowcase(index) {
-                updateProject(index);
-                $showcase.scrollIntoView({ behavior: "smooth", block: "start" });
+            function renderPaginationNumbers(catIndex, activeProjIndex) {
+                const totalProjects = portfolioData[catIndex].projects.length;
+                const numbers = [];
+
+                for (let index = 0; index < totalProjects; index++) {
+                    numbers.push($('<button>', {
+                        type: 'button',
+                        class: 'page-num' + (index === activeProjIndex ? ' current' : ''),
+                        text: pad(index + 1),
+                        'data-proj-index': index
+                    }));
+                }
+
+                $pageNums.empty().append(numbers);
             }
 
-            /* ---------- banner: click on panel OR its h2 text ---------- */
-            document.querySelectorAll(".banner-item").forEach(item => {
-                item.addEventListener("click", function (e) {
-                    const idx = parseInt(this.dataset.index, 10);
-                    goToShowcase(idx);
-                });
+            function renderCategoryState(catIndex, projectIndex) {
+                const category = portfolioData[catIndex];
+                if (!category) return;
+
+                activeCategoryIndex = catIndex;
+                activeProjectIndex = projectIndex;
+                const projects = category.projects;
+                const activeProject = projects[projectIndex] || projects[0];
+
+                $title.text(activeProject.title);
+                $desc.html(activeProject.desc);
+
+                $slider.html(`
+                    <div class="project-slide project-slide--featured">
+                        <div class="img-zoom">
+                            <img class="main-img" src="${activeProject.main}" alt="${activeProject.title}">
+                        </div>
+                    </div>
+                `);
+
+                const thumbMarkup = projects
+                    .map((project, index) => ({ project, index }))
+                    .filter(({ index }) => index !== projectIndex)
+                    .map(({ project, index }) => `
+                        <button type="button" class="project-thumb" data-proj-index="${index}">
+                            <span class="img-zoom">
+                                <img src="${project.main}" alt="${project.title}">
+                            </span>
+                        </button>
+                    `)
+                    .join('');
+
+                $thumbs.html(thumbMarkup);
+                renderPaginationNumbers(catIndex, projectIndex);
+
+                $('.project-cat-btn')
+                    .removeClass('active')
+                    .filter(`[data-cat-index="${catIndex}"]`)
+                    .addClass('active');
+            }
+
+            renderCategoryState(0, 0);
+
+            $categories.on('click', '.project-cat-btn', function () {
+                const catIndex = Number($(this).attr('data-cat-index'));
+                renderCategoryState(catIndex, 0);
             });
 
-            document.querySelectorAll(".banner-item h2").forEach(h2 => {
-                h2.addEventListener("click", function (e) {
-                    e.stopPropagation();
-                    const idx = parseInt(this.closest(".banner-item").dataset.index, 10);
-                    goToShowcase(idx);
-                });
+            $('.ps-arrow.next').on('click', function () {
+                const totalProjects = portfolioData[activeCategoryIndex].projects.length;
+                const nextProjectIndex = (activeProjectIndex + 1) % totalProjects;
+                renderCategoryState(activeCategoryIndex, nextProjectIndex);
             });
 
-            /* ---------- pagination arrows ---------- */
-            document.querySelector(".next").addEventListener("click", () => updateProject(currentIndex + 1));
-            document.querySelector(".prev").addEventListener("click", () => updateProject(currentIndex - 1));
-
-            /* ---------- pagination numbers ---------- */
-            $pageNums.forEach((el, i) => {
-                el.addEventListener("click", () => updateProject(i));
+            $('.ps-arrow.prev').on('click', function () {
+                const totalProjects = portfolioData[activeCategoryIndex].projects.length;
+                const prevProjectIndex = (activeProjectIndex - 1 + totalProjects) % totalProjects;
+                renderCategoryState(activeCategoryIndex, prevProjectIndex);
             });
 
-            /* ---------- auto-cycle every 5 s ---------- */
-            setInterval(() => updateProject(currentIndex + 1), 5000);
-        })();
+            $pageNums.on('click', '.page-num', function () {
+                const targetProjIndex = Number($(this).attr('data-proj-index'));
+                renderCategoryState(activeCategoryIndex, targetProjIndex);
+            });
+
+            $thumbs.on('click', '.project-thumb', function () {
+                const targetProjIndex = Number($(this).attr('data-proj-index'));
+                renderCategoryState(activeCategoryIndex, targetProjIndex);
+            });
+
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver(
+                    entries => {
+                        sectionInView = entries[0].isIntersecting;
+                    },
+                    { threshold: 0.3 }
+                );
+                observer.observe(document.getElementById('project-showcase'));
+            } else {
+                sectionInView = true;
+            }
+
+            $(document).on('keydown', function (event) {
+                if (!sectionInView) return;
+                if (event.key === 'ArrowRight') {
+                    $slider.slick('slickNext');
+                } else if (event.key === 'ArrowLeft') {
+                    $slider.slick('slickPrev');
+                }
+            });
+        });
     </script>
-    <script> $(function () { const $banner = $('.banner'); const $items = $banner.find('.banner-item'); $items.find('h2').on('mouseenter', function (e) { if ($banner.hasClass('has-active')) return; const $thisItem = $(this).closest('.banner-item'); $items.removeClass('active'); $thisItem.addClass('active'); $banner.addClass('has-active'); }); $items.find('h2').on('click', function (e) { e.stopPropagation(); const $thisItem = $(this).closest('.banner-item'); if ($thisItem.hasClass('active')) return; $items.removeClass('active'); $thisItem.addClass('active'); $banner.addClass('has-active'); }); $banner.on('mouseleave', function () { if ($banner.hasClass('has-active')) return; $items.removeClass('active'); $banner.removeClass('has-active'); }); $items.find('h2').attr('tabindex', 0).on('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { $(this).trigger('click'); e.preventDefault(); } else if (e.key === 'Escape') { $items.removeClass('active'); $banner.removeClass('has-active'); } }); }); </script>
-    <script src="assets/JS-animation/email.js" defer></script>
-    <script src="assets/JS-animation/header.js"></script>
 </body>
 
 </html>
