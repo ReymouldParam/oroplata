@@ -8,6 +8,7 @@
     <title>Banner — Pixel Perfect Scroll Zoom</title>
     <!-- Global styles -->
     <link rel="stylesheet" href="assets/css/Global.css">
+    <link rel="stylesheet" href="assets/css/scroll-animations.css">
     <!-- Homepage styles -->
     <link rel="stylesheet" href="assets/css/home.css" />
     <!-- Responsiveness -->
@@ -24,7 +25,7 @@
 
 <body>
     <!-- Header -->
-    <header class="site-header" role="banner">
+    <header class="site-header scrollAnimationFixed" role="banner">
         <div class="header-container header-inner">
             <!-- Logo -->
             <div class="logo-container">
@@ -50,16 +51,12 @@
     </header>
     <!-- Banner wrapper (scroll container) -->
     <section class="banner-wrapper">
-        <div class="banner" id="hero">
-            <div class="banner-media" aria-hidden="true">
-                <img src="assets/images/banner-bg.png" alt="Banner Background" class="banner-img">
-            </div>
+        <div class="banner scrollAnimationFixed" id="hero">
 
             <!-- Left Text -->
-            <div class="banner-left">
+            <div class="banner-left scrollAnimationFixed">
                 <h1 class="headline">
-
-                    COMPLETE MECHANICAL, ELECTRICAL PLANING <br> SOLUTIONS
+                    COMPLETE TURNKEY <br> SOLUTIONS
                 </h1>
                 <p class="subhead">
                     FROM MECHANICAL, ELECTRICAL PLANING TO INTERIORS
@@ -67,13 +64,12 @@
                 </p>
             </div>
 
-            <div class="circle-cta">
-                <a href="./services">
-                    <img src="assets/images/circular-btn.png" alt="Circular Arrow" />
-                </a>
+            <div class="circle-cta scrollAnimationFixed">
+                <img src="assets/images/circular-btn.png" alt="Circular Arrow" />
             </div>
+
             <!-- Right Text -->
-            <div class="banner-right">
+            <div class="banner-right scrollAnimationFixed">
                 <h1 class="headline">
                     CRAFTED WITH SMART <br> ELECTRICAL PRECISION
                 </h1>
@@ -545,6 +541,7 @@
     <script src="assets/JS-animation/home-page.js" defer></script>
     <script src="assets/JS-animation/email.js" defer></script>
     <script src="assets/JS-animation/header.js"></script>
+    <script src="assets/JS-animation/scroll-animations.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
 

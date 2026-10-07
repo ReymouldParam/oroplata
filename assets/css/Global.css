@@ -24,8 +24,6 @@ body {
     line-height: 1.5;
     /* background: #fafafa; */
     overflow-x: hidden;
-    background: #111;
-
 }
 
 /* Container */
@@ -45,9 +43,9 @@ body {
     height: 70px;
     display: flex;
     align-items: center;
-    /* background: #111; */
+    background: #000000c9;
+    backdrop-filter: blur(5px);
     z-index: 1000;
-    opacity: 0.9;
 }
 
 /* Logo */

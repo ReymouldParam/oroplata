@@ -1,19 +1,30 @@
+  .site-header{
+    transform: translateY(-100%);
+    transition: all 2s linear;
+  }
   .banner-wrapper {
       position: relative;
-      height: 300vh;
-      /* 3 × viewport height for scrolling */
+      background-color: #000;
   }
 
   /* Banner stays pinned while wrapper scrolls */
   .banner {
-      position: sticky;
-      top: 0;
       height: 100vh;
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #000;
+      background: #0000002a;
+      background-blend-mode: multiply;
+      background-image: url("../images/banner-bg.png");
+      background-position: center;
+      background-size: 50% auto;
+      background-repeat: no-repeat;
+      transition: all 2s ease-in-out;
+  }
+
+  .banner.defaultPosition{
+    background-size: 100% auto;
   }
 
   .banner-media {
@@ -22,34 +33,16 @@
       z-index: 0;
   }
 
-  .banner-img {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      min-width: 120%;
-      min-height: 120%;
-      object-fit: cover;
-      transform: translate(-50%, -50%) scale(0.4);
-      /* your animation script will control scaling */
-      transform-origin: center center;
-      will-change: transform;
-  }
-
-  .banner::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7));
-      z-index: 1;
-  }
-
   /* --- Text & Circle Placement --- */
   .banner-left {
       position: absolute;
-      top: 20%;
-      left: 5%;
+      top: 120px;
+      left: 40px;
       color: white;
       z-index: 2;
+      transform: translate(0px, 50px);
+      opacity: 0;
+      transition: all 2s ease-in-out 2s;
   }
 
   .banner-left .headline {
@@ -60,17 +53,20 @@
 
   .banner-left .subhead {
       font-size: 1rem;
-      margin-top: 20px;
+      margin-top: 10px;
       opacity: 0.85;
   }
 
   .banner-right {
       position: absolute;
-      bottom: 20%;
-      right: 5%;
+      bottom: 40px;
+      right: 40px;
       color: white;
       text-align: right;
       z-index: 2;
+      transform: translate(0px, -50px);
+      opacity: 0;
+      transition: all 2s ease-in-out 2s;
   }
 
   .banner-right .headline {
@@ -83,32 +79,16 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translate(350px, -200px);
       width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #d4af37, #b8860b);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
-      font-weight: bold;
-      color: black;
       z-index: 3;
-      cursor: pointer;
-      transition: transform 0.3s ease;
+      opacity: 0.5;
+      transition: all 2s ease;
   }
 
-  .circle-cta:hover {
-      transform: translate(-50%, -50%) scale(1.05) rotate(15deg);
+  .circle-cta.defaultPosition{
+    transform: translate(-50%, -30%) !important;
   }
-
-  .circle-cta i {
-      /* display: inline-block; */
-      color: white;
-      font-size: 40px;
-  }
-
 
   .page-content {
       padding: 80px 20px;

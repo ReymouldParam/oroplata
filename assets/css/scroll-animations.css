@@ -1,0 +1,33 @@
+.defaultPosition{
+    transform: translateX(0) translateY(0) translateZ(0) !important;
+    opacity: 1 !important;
+}
+
+.defaultWidth{
+    width: 100% !important;
+}
+
+:root{
+    --anim-prop: all 0.7s ease-out;
+}
+
+.startLeft{
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: var(--anim-prop);
+}
+.startRight{
+    transform: translateX(100%);
+    opacity: 0;
+    transition: var(--anim-prop);
+}
+.startTop{
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: var(--anim-prop);
+}
+.startBottom{
+    transform: translateY(100%);
+    opacity: 0;
+    transition: var(--anim-prop);
+}
