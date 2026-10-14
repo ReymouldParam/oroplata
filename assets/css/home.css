@@ -307,10 +307,6 @@
 
   /* ---- Mobile: switch to stacked layout (≤767px) ---- */
   @media (max-width:767px) {
-      body {
-          padding: 30px 12px;
-      }
-
       .about-section {
           width: 94%;
           margin: 20px auto;
