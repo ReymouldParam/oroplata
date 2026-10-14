@@ -16,8 +16,8 @@
 
 html,
 body {
-    height: 100%;
     width: 100%;
+    background-color: #111;
 }
 
 body {
@@ -69,7 +69,6 @@ body {
     display: flex;
     gap: 40px;
     color: white;
-    background: rgba(20, 20, 20, 0.45);
     padding: 20px;
     border-radius: 18px;
 }
