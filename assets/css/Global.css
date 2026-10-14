@@ -380,7 +380,7 @@ body {
     background: radial-gradient(circle at center, #141414 0%, #070707 100%);
     color: #fff;
     overflow: hidden;
-    padding-top: 30px;
+    padding-top: 10px;
     text-align: center;
     font-family: "Poppins", sans-serif;
 }
@@ -501,7 +501,6 @@ body {
             rgba(0, 0, 0, 0.95) 100%);
     filter: blur(30px);
     opacity: 0.8;
-    animation: footerLightPulse 2s ease-in-out infinite;
     transform-origin: bottom center;
 }
 
@@ -559,7 +558,7 @@ body {
 .footer-bottom {
     position: relative;
     z-index: 5;
-    padding: 12px 0 40px;
+    padding: 10px 0;
     background: transparent;
 }
 
@@ -572,7 +571,7 @@ body {
 /* ---------- Responsive tuning ---------- */
 @media (max-width: 1400px) {
     .footer-logo {
-        width: 1000px;
+        width: 760px;
     }
 
     .footer-light--center {
