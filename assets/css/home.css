@@ -20,6 +20,7 @@
       background-position: center;
       background-size: 50% auto;
       background-repeat: no-repeat;
+      opacity: 0;
       transition: all 2s ease-in-out;
   }
 
@@ -49,6 +50,7 @@
       font-size: 3rem;
       font-weight: 500;
       line-height: 1.2;
+      text-transform: uppercase;
   }
 
   .banner-left .subhead {
@@ -73,6 +75,7 @@
       font-size: 3rem;
       font-weight: 500;
       line-height: 1.2;
+      text-transform: uppercase;
   }
 
   .circle-cta {
