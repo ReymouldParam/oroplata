@@ -80,6 +80,40 @@ button:focus-visible {
 
 /* ==================== HEADER & NAVIGATION ==================== */
 
+@media (max-width: 1024px) {
+    .nav-toggle {
+        display: block;
+        position: relative;
+        z-index: 1;
+        padding: 8px;
+        cursor: pointer;
+    }
+
+    .main-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 5%;
+        width: min(320px, 90vw);
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px;
+        padding: 20px;
+        border-radius: 0 0 12px 12px;
+        background: #000000ed;
+    }
+
+    .main-nav.is-open {
+        display: flex;
+    }
+
+    .main-nav .header-contact {
+        margin-top: 4px;
+    }
+}
+
 /* ==================== HOME PAGE - BANNER : MOBILE RESPONSIVE ==================== */
 
 @media (max-width: 768px) {
@@ -94,11 +128,6 @@ button:focus-visible {
     body {
         width: 100%;
         overflow-x: hidden;
-    }
-
-    .banner-wrapper {
-        height: 220vh;
-        /* shorter pinned-scroll distance feels less sluggish on mobile */
     }
 
     .banner {
@@ -150,10 +179,6 @@ button:focus-visible {
 }
 
 @media (max-width: 480px) {
-
-    .banner-wrapper {
-        height: 200vh;
-    }
 
     .banner-img {
         min-width: 190%;
@@ -264,11 +289,11 @@ button:focus-visible {
     }
 
     .circle-text .right {
-        right: -40px;
+        right: -80px;
     }
 
     .circle-text .left {
-        left: -46px;
+        left: -90px;
     }
 
     .circle-text .top {
@@ -341,6 +366,10 @@ button:focus-visible {
     }
 
     .bottom-row {
+        grid-template-columns: 1fr;
+    }
+
+    .header-section.middle{
         grid-template-columns: 1fr;
     }
 }
@@ -581,6 +610,7 @@ button:focus-visible {
 
     .service-info {
         border-radius: 24px;
+        border-radius: 20px 20px 0 0;
     }
 
     .service-image {
@@ -613,7 +643,7 @@ button:focus-visible {
     }
 
     .service-info {
-        padding: 30px 25px;
+        padding: 10px 25px;
     }
 }
 

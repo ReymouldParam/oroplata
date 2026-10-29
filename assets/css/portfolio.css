@@ -685,6 +685,10 @@ screen and (min-width: 1280px) and (min-resolution: 192dpi) {
     .project-thumb img {
         height: 120px;
     }
+
+    .gallery-section .gallery-grid{
+        grid-template-columns: 1fr !important;
+    }
 }
 
 @media (max-width: 420px) {
