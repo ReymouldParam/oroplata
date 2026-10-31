@@ -130,8 +130,14 @@ button:focus-visible {
         overflow-x: hidden;
     }
 
+    .banner.defaultPosition {
+        background-size: cover;
+        background-position: -180px;
+    }
+
     .banner {
-        height: 100vh;
+        height: 62vh;
+        padding-top: 70px;
     }
 
     .banner-img {
@@ -158,23 +164,27 @@ button:focus-visible {
 
     .banner-left .headline,
     .banner-right .headline {
-        font-size: clamp(1.5rem, 6vw, 2.1rem) !important;
-        /* wins over the conflicting 3rem base rule */
-        line-height: 1.25;
+        font-size: 24px !important;
+        line-height: 1.2;
     }
 
-    .banner-left .subhead {
-        font-size: clamp(0.8rem, 3vw, 0.95rem);
-        margin-top: 12px;
+    .banner-left .subhead,
+    .banner-right .subhead {
+        font-size: 14px !important;
     }
 
     .circle-cta {
+        transform: translate(10px, 10px);
         width: 88px;
         height: 88px;
     }
 
-    .circle-cta i {
-        font-size: 26px;
+    .circle-cta.defaultPosition {
+        transform: translate(-65%, -73%) !important;
+    }
+
+    .circle-cta img {
+        height: 70px;
     }
 }
 
@@ -193,18 +203,14 @@ button:focus-visible {
     }
 
     .banner-left {
-        top: 13%;
+        top: 75px;
     }
 
     .banner-right {
-        bottom: 13%;
+        bottom: 40px;
     }
 
-    .banner-left .headline,
-    .banner-right .headline {
-        font-size: clamp(1.25rem, 7vw, 1.6rem) !important;
-        line-height: 1.2;
-    }
+
 
     .banner-left .subhead {
         font-size: 0.8rem;
@@ -223,12 +229,6 @@ button:focus-visible {
 
 /* Small phones */
 @media (max-width: 360px) {
-
-    .banner-left .headline,
-    .banner-right .headline {
-        font-size: 1.15rem !important;
-    }
-
     .circle-cta {
         width: 68px;
         height: 68px;
@@ -272,9 +272,8 @@ button:focus-visible {
     .choose-box {
         flex-direction: column;
         align-items: stretch;
-        width: 100%;
         padding: 28px 22px;
-        gap: 28px;
+        gap: 25px;
     }
 
     .choose-right {
@@ -309,8 +308,8 @@ button:focus-visible {
 
 @media (max-width: 600px) {
     .service-card {
-        width: 92vw;
         max-width: 420px;
+        margin-bottom: 20px;
     }
 
     .service-card img {
@@ -325,6 +324,31 @@ button:focus-visible {
     .right-lights {
         width: 120px;
         top: -4%;
+    }
+
+    .choose-right {
+        width: 150px;
+        height: auto;
+        margin: 30px auto;
+    }
+
+    .choose-container {
+        height: 150px;
+        margin: 10px 0;
+    }
+
+    .circle-center-text h3 {
+        font-size: 13px;
+    }
+
+    .dot-img{
+        width: 15px;
+        height: 15px;
+    }
+
+    .gallery-header p{
+        font-size: 14px !important;
+        line-height: inherit !important;
     }
 }
 
@@ -358,7 +382,8 @@ button:focus-visible {
     }
 
     .header-section {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column-reverse;
     }
 
     .middle-right {
@@ -369,7 +394,7 @@ button:focus-visible {
         grid-template-columns: 1fr;
     }
 
-    .header-section.middle{
+    .header-section.middle {
         grid-template-columns: 1fr;
     }
 }
@@ -421,12 +446,28 @@ button:focus-visible {
 
 @media (max-width: 768px) {
 
+    .header-text {
+        padding: 10px var(--std-padding);
+    }
+
+    .choose-title {
+        font-size: 30px;
+        margin-top: 0;
+    }
+
+    .offer-left {
+        margin-left: 0
+    }
+
     .vm-box-vision,
     .vm-box-mission {
-        flex-direction: column;
-        text-align: center;
-        padding: 30px 20px;
-        width: 98%;
+        padding: 0;
+        grid-template-columns: 100%
+    }
+
+    .vm-box-mission{
+        display: flex;
+        flex-direction: column-reverse;
     }
 
     .vm-box-vision p,
@@ -436,6 +477,24 @@ button:focus-visible {
 
     .vm-img img {
         height: 250px;
+    }
+
+    .exp-section {
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 35px;
+    }
+
+    .exp-section span{
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .exp-section .value{
+        font-size: 30px;
     }
 }
 
@@ -625,7 +684,12 @@ button:focus-visible {
     }
 
     .service-left h3 {
-        font-size: 20px;
+        font-size: 30px;
+    }
+
+    .service-left p{
+        font-size: 14px;
+        margin-bottom: 10px;
     }
 
     .service-info h4 {

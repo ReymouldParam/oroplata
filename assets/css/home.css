@@ -240,9 +240,6 @@
 
   /* ---- Smaller HD laptops (1024–1279px, e.g. 1366x768 at 90% zoom, budget HD screens) ---- */
   @media (max-width:1279px) {
-      .about-section {
-          width: 90%;
-      }
 
       .about-container {
           aspect-ratio: 3.1/1;
@@ -271,11 +268,6 @@
 
   /* ---- Tablets, landscape & portrait (768–1023px) ---- */
   @media (max-width:1023px) {
-      .about-section {
-          width: 92%;
-          margin: 30px auto;
-      }
-
       .about-container {
           aspect-ratio: 2.4/1;
           min-height: 280px;
@@ -312,9 +304,7 @@
   /* ---- Mobile: switch to stacked layout (≤767px) ---- */
   @media (max-width:767px) {
       .about-section {
-          width: 94%;
-          margin: 20px auto;
-          border-radius: 28px;
+        padding: 15px var(--std-padding);
       }
 
       .about-container {
@@ -359,13 +349,6 @@
 
   /* ---- Small mobile phones (≤480px) ---- */
   @media (max-width:480px) {
-      .about-section {
-          width: 94%;
-          margin: 16px auto;
-          border-radius: 22px;
-          border-width: 1px;
-      }
-
       .about-container {
           border-radius: 22px;
       }
@@ -750,7 +733,6 @@
       gap: 20px;
       margin-bottom: 44px;
       /* flex-wrap: wrap; */
-      width: 90%;
       margin: auto;
   }
 
@@ -959,7 +941,6 @@
 
   /********************** Offer Section *****/
   .custom-offer-section {
-      width: 100vw;
       padding: 30px 0;
       display: flex;
       align-items: center;
@@ -1075,7 +1056,7 @@
 
       .offer-left,
       .offer-right {
-          padding: 32px 5vw;
+          padding: 32px;
           text-align: center;
       }
 
@@ -1309,6 +1290,12 @@
       .bottom-row {
           grid-template-columns: 1fr;
       }
+
+      .offer-left {
+        flex: 1;
+        padding: 0;
+        margin-left: 0px;
+    }
   }
 
   /* ========== Reveal / Interaction helpers ========== */
@@ -1448,10 +1435,6 @@
       position: relative;
       padding: 0 40px;
       margin-bottom: 60px;
-  }
-
-  .slick-slider {
-      padding: 20px 0;
   }
 
   .slide-item {
@@ -1735,6 +1718,26 @@
 
       .slick-dots {
           left: 40px;
+      }
+
+      .header-image img{
+        transform: none;
+      }
+
+      .category-item h3{
+        font-size: 30px;
+      }
+
+      .choose-left p{
+        font-size: 15px;
+      }
+
+      .choose-content{
+        min-height: 160px;
+      }
+
+      .choose-left h4{
+        display: none;
       }
   }
 
